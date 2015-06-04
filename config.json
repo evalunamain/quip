@@ -5,7 +5,7 @@
     "staticSrc": {
         "base": "public",
         "css": "public/css",
-        "less": "public/less",
+        "scss": "public/scss",
         "js": "public/js",
         "templates": "public/templates"
     },

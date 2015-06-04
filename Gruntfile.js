@@ -45,19 +45,20 @@ module.exports = function(grunt) {
                 dest: config.staticDist.js + '/app.js'
             }
         },
-        less: {
-            compile: {
-                options: {
-                    sourceMap: true
+        sass: {                              // Task
+            dist: {                            // Target
+                options: {                       // Target options
+                    style: 'expanded'
                 },
-                src: config.staticSrc.less + '/*.less',
-                dest: config.staticSrc.css + '/less-styles.css'
+                files: {                         // Dictionary of files
+                    'public/css/main.css': './public/scss/main.scss'       // 'destination': 'source'
+                }
             }
         },
         watch: {
-            less: {
-                files: config.staticSrc.less + '/*.less',
-                tasks: ['less']
+             sass: {
+                files: config.staticSrc.sass + '/*.scss',
+                tasks: ['sass']
             }
         }
 
@@ -93,11 +94,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jst');
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['clean', 'less', 'cssmin', 'requirejs', 'jst', 'uglify', 'index']);
+    grunt.registerTask('default', ['clean', 'sass', 'cssmin', 'requirejs', 'jst', 'uglify', 'index']);
 
 
 };
