@@ -1,10 +1,5 @@
-body {
-    width: 800px;
-    border: 1px solid black;
-    margin: 0px auto;
-    display: block;
-}
+@import '../bower_components/foundation/scss/foundation.scss';
 
-* {
-    text-decoration: none;
+body {
+	color: lightgray;
 }

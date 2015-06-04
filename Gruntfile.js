@@ -57,7 +57,7 @@ module.exports = function(grunt) {
         },
         watch: {
              sass: {
-                files: config.staticSrc.sass + '/*.scss',
+                files: 'public/scss/main.scss',
                 tasks: ['sass']
             }
         }
@@ -99,6 +99,10 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['clean', 'sass', 'cssmin', 'requirejs', 'jst', 'uglify', 'index']);
+
+    grunt.event.on('watch', function(action, filepath, target) {
+      grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
+    });
 
 
 };
