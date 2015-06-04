@@ -1,2 +1,3 @@
-/.sass-cache
-/dist
+.sass-cache
+dist
+public/bower_components
