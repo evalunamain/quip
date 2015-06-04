@@ -4,7 +4,7 @@ This is a platform for building SPA using Backbone and Marionette. It is a way o
 - Loading project dependencies with [Bower](http://bower.io/)
 - Building you application with [Grunt](http://gruntjs.com/)
 - Using [require.js](http://requirejs.org/) for loading application dependencies
-- Writing styles with [Less](http://lesscss.org/)
+- Writing styles with Sass
 - Simple web-server on [Node](http://nodejs.org/) and [Express.js](http://expressjs.com/)
  
 ##Getting started

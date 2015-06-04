@@ -9,7 +9,7 @@ exports.index = function(success, enviroment) {
     var config = grunt.file.readJSON('config.json'),
         cssList = [],
         jsList = [],
-        lessPath = 'lib/less.js/dist/less-1.7.5.js',
+        // lessPath = 'lib/less.js/dist/less-1.7.5.js',
         templates = [],
         enviroment = enviroment || config.enviroment;
 
@@ -37,7 +37,7 @@ exports.index = function(success, enviroment) {
         jsList: jsList,
         cssList: cssList,
         templates: templates,
-        lessPath: lessPath,
+        // lessPath: lessPath,
         title: ''
     }, function(err, html){
         if (err) throw err;
