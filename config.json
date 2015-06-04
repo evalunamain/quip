@@ -1,0 +1,21 @@
+{
+    "enviroment": "dev",
+    "templateEngine": "underscore",
+    "templateExt": ".us",
+    "staticSrc": {
+        "base": "public",
+        "css": "public/css",
+        "less": "public/less",
+        "js": "public/js",
+        "templates": "public/templates"
+    },
+    "staticDist": {
+        "tmpFolder": "dist/tmp",
+        "base": "dist/public",
+        "css": "dist/public/css",
+        "js": "dist/public/js",
+        "cssBundleName": "main.css",
+        "jsBundleName": "app.js"
+    }
+
+}

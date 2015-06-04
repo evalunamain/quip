@@ -1,0 +1,7 @@
+<ul class="menu">
+    <% _.each(structure, function(item) { %>
+        <li style="display: inline-block;">
+            <a href="<%= item.href %>"><%= item.name %></a>
+        </li>
+    <% }); %>
+</ul>
