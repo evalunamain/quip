@@ -5,6 +5,10 @@ define(['app', 'backbone'], function(app, Backbone) {
 
     var User = Backbone.Model.extend({
 
+    	defaults: {
+    		name: 'Eva Luna Main'
+    	},
+
         url: '/api/user/'
 
     });

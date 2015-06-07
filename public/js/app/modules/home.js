@@ -30,7 +30,7 @@ define(['app', 'marionette', 'js/app/routing-module', 'view/text-view'], functio
             var textView = new TextView({
                 text: 'home page'
             });
-            app.content(textView.render());
+            app.content(textView);
         }
 
     });
