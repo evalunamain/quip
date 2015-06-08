@@ -51,14 +51,18 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/use
     app.on('start', function() {
         if (!Backbone.history) return;
 
-        var wordBlue = new Word({'word': 'blue', 'definition': 'It\'s the color blue, stupid.'});
-        var wordRed = new Word({'word': 'red', 'definition': 'It\'s the color red, stupid.'});
+        var wordBlue = new Word({'word': 'Blue', 'definition': 'It\'s the color blue, stupid.'});
+        var wordRed = new Word({'word': 'Red', 'definition': 'It\'s the color red, stupid.'});
         var wordGreen = new Word({'word': 'Green', 'definition': 'It\'s the color green, stupid.'});
-        var wordYellow = new Word({'word': 'yellow', 'definition': 'It\'s the color yellow, stupid.'});
-        var wordPurple = new Word({'word': 'purple', 'definition': 'It\'s the color purple, stupid.'});
-        var wordPink = new Word({'word': 'pink', 'definition': 'It\'s the color pink, stupid.'});
+        var wordYellow = new Word({'word': 'Yellow', 'definition': 'It\'s the color yellow, stupid.'});
+        var wordPurple = new Word({'word': 'Purple', 'definition': 'It\'s the color purple, stupid.'});
+        var wordPink = new Word({'word': 'Pink', 'definition': 'It\'s the color pink, stupid.'});
+        var wordIndigo = new Word({'word': 'Indigo', 'definition': 'It\'s the color indigo, stupid.'});
+        var wordMauve = new Word({'word': 'Mauve', 'definition': 'It\'s the color mauve, stupid.'});
+        var wordBlack = new Word({'word': 'Black', 'definition': 'Black is actually the absence of color, stupid.'});
 
-        app.userWords = new UserWords([wordBlue,wordRed,wordGreen,wordYellow,wordPink,wordPurple]);
+
+        app.userWords = new UserWords([wordBlue,wordRed,wordGreen,wordYellow,wordPink,wordPurple,wordIndigo,wordMauve,wordBlack]);
 
         require(['js/app/menu', 'module/users', 'module/home'], function(menu) {
             app.Header.show(menu);
