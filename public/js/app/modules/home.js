@@ -1,7 +1,7 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'marionette', 'js/app/routing-module', 'view/text-view'], function(app, Marionette, RoutingModule, TextView) {
+define(['app', 'marionette', 'js/app/routing-module', 'view/text-view', 'view/user-words-view'], function(app, Marionette, RoutingModule, TextView, UserWordsView) {
 
     var HomeModule = RoutingModule.extend({
 
@@ -27,12 +27,11 @@ define(['app', 'marionette', 'js/app/routing-module', 'view/text-view'], functio
 
         homeAction: function() {
             console.log('homeAction');
-            var textView = new TextView({
-                text: 'home page'
-            });
-           // var listView = new ListView({collection: app.userWords})
-            console.log(app.wordList);
-            app.content(textView);
+            // var textView = new TextView({
+            //     text: 'home page'
+            // });
+            var userWordsView = new UserWordsView({collection: app.userWords});
+            app.content(userWordsView);
         }
 
     });
