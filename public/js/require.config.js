@@ -9,7 +9,8 @@ requirejs.config({
         'app': 'js/app',
         'module': 'js/app/modules',
         'model': 'js/app/models',
-        'view': 'js/app/views'
+        'view': 'js/app/views',
+        'collection': 'js/app/collections'
     },
     shim: {
         'backbone': {

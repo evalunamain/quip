@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery'], function(Marionette, Backbone, $) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/word-list'], function(Marionette, Backbone, $, Word, WordList) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
@@ -17,6 +17,9 @@ define('app', ['marionette', 'backbone', 'jquery'], function(Marionette, Backbon
     var app = new Marionette.Application({
 
         currentModule: '',
+
+        
+
 
         regions: {
             Header: '#header',
@@ -47,6 +50,16 @@ define('app', ['marionette', 'backbone', 'jquery'], function(Marionette, Backbon
 
     app.on('start', function() {
         if (!Backbone.history) return;
+
+        var wordBlue = new Word({'word': 'blue', 'definition': 'It\'s the color blue, stupid.'});
+        var wordRed = new Word({'word': 'red', 'definition': 'It\'s the color red, stupid.'});
+        var wordGreen = new Word({'word': 'Green', 'definition': 'It\'s the color green, stupid.'});
+        var wordYellow = new Word({'word': 'yellow', 'definition': 'It\'s the color yellow, stupid.'});
+        var wordPurple = new Word({'word': 'purple', 'definition': 'It\'s the color purple, stupid.'});
+        var wordPink = new Word({'word': 'pink', 'definition': 'It\'s the color pink, stupid.'});
+
+        app.wordList = new WordList([wordBlue,wordRed,wordGreen,wordYellow,wordPink,wordPurple]);
+
         require(['js/app/menu', 'module/users', 'module/home'], function(menu) {
             app.Header.show(menu);
             Backbone.history.start({pushState: true});
