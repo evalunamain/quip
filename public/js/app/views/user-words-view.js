@@ -5,7 +5,7 @@ define(['marionette', 'view/user-word-view'], function(Marionette, UserWordView)
 
     var UserWordsView = Marionette.CollectionView.extend({
 
-    	className: 'row',
+    	className: '',
 
         childView: UserWordView
 

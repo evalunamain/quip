@@ -1,4 +1,4 @@
-<div class="userword">
+<div class="userword col s12 clearfix">
 	<span class="wordtitle"><%= word %></span>
-	<div class="worddefinition"><%= definition %></div>
+	<span class="worddefinition"><%= definition %></div>
 </div>

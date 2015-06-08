@@ -2,7 +2,7 @@
   "name": "backbone-marionette-boilerplate",
   "dependencies": {
     "backbone.marionette": "2.2.1",
-    "foundation": "~5.5.2"
+    "materialize": "~0.96.1"
   },
   "resolutions": {
     "underscore": ">=1.4.0 <=1.8.3"
