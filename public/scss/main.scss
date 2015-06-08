@@ -6,15 +6,18 @@ body {
 
 .userword {
 	position: relative;
+	border: 1px solid gray;
+	margin: 20px;
 }
 
 .wordtitle {
-	position: absolute;
+	position: relative;
 	display: block;
 	top: 0;
 	padding: 20px;
+	text-align: center;
 }
 
 .worddefinition {
-	padding: 20px;
+	padding: 0 20px 20px;
 }

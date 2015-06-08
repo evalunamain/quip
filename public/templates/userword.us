@@ -1,2 +1,4 @@
-<span class="wordtitle"><%= word %></span>
-<span class="worddefinition"><%= definition %></span>
+<div class="userword">
+	<span class="wordtitle"><%= word %></span>
+	<div class="worddefinition"><%= definition %></div>
+</div>

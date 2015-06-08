@@ -7931,4 +7931,22 @@ body {
   color: lightgray;
 }
 
+.userword {
+  position: relative;
+  border: 1px solid gray;
+  margin: 20px;
+}
+
+.wordtitle {
+  position: relative;
+  display: block;
+  top: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.worddefinition {
+  padding: 0 20px 20px;
+}
+
 /*# sourceMappingURL=main.css.map */
