@@ -3,3 +3,18 @@
 body {
 	color: lightgray;
 }
+
+.userword {
+	position: relative;
+}
+
+.wordtitle {
+	position: absolute;
+	display: block;
+	top: 0;
+	padding: 20px;
+}
+
+.worddefinition {
+	padding: 20px;
+}

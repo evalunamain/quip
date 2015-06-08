@@ -1,0 +1,4 @@
+<div class="small-4 columns userword">
+	<span class="wordtitle"><%= word %></span>
+	<span class="worddefinition"><%= definition %></span>
+</div>
