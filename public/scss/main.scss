@@ -1,7 +1,8 @@
 @import '../bower_components/materialize/sass/materialize.scss';
 
 body {
-	color: lightgray;
+	color: #212121;
+	background-color: #FAFAFA;
 }
 
 .clearfix:after {
@@ -10,25 +11,52 @@ body {
 	clear: both;
 }
 
+.wordrow {
+	@extend .row;
+	margin-bottom: 0;
+
+	&:last-of-type {
+		.userword {
+			border-bottom: none;
+		}
+	}
+}
+
 .userword {
-	margin: 5px 0;
 	overflow: hidden;
+	border-bottom: 1px solid lightgray;
+
 }
 
 .row .userword {
-	padding: 0;
+	padding: 7px;
 }
 
 .wordtitle {
-	@extend .z-depth-1, .cyan, .darken-3;
+	@extend .grey-text, .text-darken-4;
+	min-width: 150px;
 	color: white;
 	float: left;
 	display: block;
 	margin-right: 20px;
 	text-align: center;
+}
 
+.word-circle {
+	display: block;
+	float: left;
+	height: 22px;
+	width: 22px;
+	border-radius: 50%;
+	font-size: 10px;
+	line-height: 22px;
+	text-align: center;
+	background-color: #294F8A;;
+	color: white;
 }
 
 .worddefinition {
+	margin-left: 50px;
 	float: left;
+	font-size: 12px;
 }
