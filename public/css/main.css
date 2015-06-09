@@ -10226,12 +10226,12 @@ body {
   border-bottom: none;
 }
 
-.userword {
+.wordListed {
   overflow: hidden;
   border-bottom: 1px solid lightgray;
 }
 
-.row .userword, .wordrow .userword {
+.row .wordListed, .wordrow .wordListed {
   padding: 7px;
 }
 
