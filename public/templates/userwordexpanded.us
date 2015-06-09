@@ -1,3 +1,6 @@
-
-	<h6><%= word %></h6>
-	<p><%= definition %></p>
+<h6><%= word %></h6>
+<ul>
+	<% definitions.forEach(function (definition) { %>
+		<li><%= definition.definition %></li>
+	<% }) %>
+</ul>
