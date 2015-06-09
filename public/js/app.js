@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/user-words'], function(Marionette, Backbone, $, Word, UserWords) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/user-words', 'view/navbar-view'], function(Marionette, Backbone, $, Word, UserWords, NavbarView) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
@@ -138,8 +138,8 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/use
 
         app.userWords = new UserWords([wordBlue,wordTrue,wordGreen,wordYellow,wordPink,wordIndigo,wordMauve]);
 
-        require(['js/app/menu', 'module/users', 'module/home'], function(menu) {
-            app.Header.show(menu);
+        require(['module/home'], function() {
+            app.Header.show(new NavbarView());
             Backbone.history.start({pushState: true});
         });
     });

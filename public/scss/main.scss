@@ -1,7 +1,6 @@
 @import '../bower_components/materialize/sass/materialize.scss';
 
 body {
-	color: #212121;
 	background-color: #FAFAFA;
 }
 
@@ -35,7 +34,6 @@ body {
 .wordtitle {
 	@extend .grey-text, .text-darken-4;
 	min-width: 150px;
-	color: white;
 	float: left;
 	display: block;
 	margin-right: 20px;
