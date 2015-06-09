@@ -2,7 +2,7 @@ define(['marionette'], function(Marionette) {
 
     var UserWordExpandedView = Marionette.ItemView.extend({
 
-    	className: 'wordrow',
+    	className: '',
 
         template: '#userwordexpanded',
 
