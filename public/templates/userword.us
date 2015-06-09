@@ -1,5 +1,0 @@
-<div class="userword col s12 clearfix">
-	<span class="wordtitle"><%= word %></span>
-	<span class="word-circle">A</span>
-	<span class="worddefinition"><%= definition %></div>
-</div>
