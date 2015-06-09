@@ -6,12 +6,20 @@ define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view
 
         template: '#userwordlayout',
 
+        initialize: function() {
+            this.viewModel = new Backbone.Model({
+                defaults: {
+                    expanded: false
+                }
+            })
+        },
+
         regions: {
         	'wordListed' : '.wordListed'
         },
 
         events: {
-            "click .wordListed": 'wordExpand'
+            "click .wordListed": 'expandToggle'
         },
 
         onRender: function() {
@@ -19,13 +27,25 @@ define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view
         	this.getRegion('wordListed').show(wordBasicView);
         },
 
-        wordExpand: function(e) {
+        expandToggle: function() {
+            var expanded = this.viewModel.get('expanded');
+            expanded ? this.wordCollapse() : this.wordExpand();
+        },
+
+        wordExpand: function() {
             this.$el.append($('<div class="word-expanded col s12">'));
             this.addRegion("wordExpanded", ".word-expanded");
-            var wordExpandedView = new UserWordExpandedView({ model: this.model});
-            this.getRegion('wordExpanded').show(wordExpandedView);
+            this.wordExpandedView = new UserWordExpandedView({ model: this.model});
+            this.getRegion('wordExpanded').show(this.wordExpandedView);
+            this.viewModel.set('expanded', true);
             
-        }
+        },
+
+        wordCollapse: function() {
+            this.wordExpandedView && this.wordExpandedView.remove();
+            $('.word-expanded').remove();
+            this.viewModel.set('expanded', false);
+        },
 
 
 
