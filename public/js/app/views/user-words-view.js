@@ -5,7 +5,9 @@ define(['marionette', 'view/user-word-layoutview'], function(Marionette, UserWor
 
     var UserWordsView = Marionette.CollectionView.extend({
 
-    	className: 'card',	
+    	className: 'collapsible popout',
+
+    	tagName: 'ul',	
 
         childView: UserWordLayoutView
 

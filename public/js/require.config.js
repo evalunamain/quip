@@ -6,6 +6,7 @@ requirejs.config({
         'marionette': 'bower_components/backbone.marionette/lib/backbone.marionette',
         'underscore': 'bower_components/underscore/underscore',
         'jquery': 'bower_components/jquery/dist/jquery',
+        'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',        
         'app': 'js/app',
         'module': 'js/app/modules',
         'model': 'js/app/models',
@@ -30,6 +31,9 @@ requirejs.config({
         },
         jquery: {
             exports: '$'
+        },
+        'jquery-ui': {
+            deps: ['jquery']
         }
     }
 });

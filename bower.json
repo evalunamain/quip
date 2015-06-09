@@ -2,7 +2,8 @@
   "name": "backbone-marionette-boilerplate",
   "dependencies": {
     "backbone.marionette": "2.2.1",
-    "materialize": "~0.96.1"
+    "materialize": "~0.96.1",
+    "jquery-ui": "~1.11.4"
   },
   "resolutions": {
     "underscore": ">=1.4.0 <=1.8.3"
