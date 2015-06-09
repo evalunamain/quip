@@ -10,20 +10,9 @@ define(['marionette', 'view/user-word-basic-view'], function(Marionette, UserWor
         	'wordListed' : '.wordListed'
         },
 
-        initialize: function() {
-       		this.test = new UserWordBasicView({model:this.model});
-        },
-
-
-
-        onBeforeRender: function() {
-        	
-  
-        },
-
-        onAfterRender: function() {
-        	this.getRegion('wordListed').show(this.test);
-        	console.log("rendered layoutview");
+        onRender: function() {
+        	var wordBasicView = new UserWordBasicView({model: this.model});
+        	this.getRegion('wordListed').show(wordBasicView);
         }
 
 
