@@ -18,9 +18,6 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/use
 
         currentModule: '',
 
-        
-
-
         regions: {
             Header: '#header',
             Content: '#content',
@@ -51,7 +48,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/use
     app.on('start', function() {
         if (!Backbone.history) return;
 
-        app.userWords = ['cat','blue','special','crazy', 'truant'];
+        app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
 
         require(['module/home'], function() {
             app.Header.show(new NavbarView());

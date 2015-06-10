@@ -4,6 +4,10 @@ define(['app', 'backbone', 'model/word'], function(app, Backbone, Word) {
 
     	model: Word,
 
+    	comparator: function(word) {
+    		return word.get('word');
+    	},
+
     	url: 'api/words/',
 
     });

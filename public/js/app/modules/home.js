@@ -42,7 +42,6 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
                     },
                    success: function(data) {
                         console.log(data)
-                        debugger
                         var words = data.map(function(word) {
                             return new Word(word);
                         });
