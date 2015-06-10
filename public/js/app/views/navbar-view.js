@@ -2,6 +2,8 @@ define(['marionette'], function(Marionette) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
+    	className: 'navbar-fixed',
+
         template: '#navbar',
 
         events: {
