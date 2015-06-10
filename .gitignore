@@ -1,4 +1,4 @@
 .sass-cache
 dist
-public/bower_components
 node_modules
+server/env.js

@@ -1,0 +1,13 @@
+<nav>
+  <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">Merismic</a>
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="mdi-action-search"></i></label>
+          <i class="mdi-navigation-close"></i>
+        </div>
+      </form>
+
+  </div>
+</nav>

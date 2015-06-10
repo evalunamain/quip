@@ -1,7 +1,7 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'marionette', 'js/app/routing-module', 'view/text-view', 'view/user-words-view'], function(app, Marionette, RoutingModule, TextView, UserWordsView) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/text-view', 'view/user-words-view', 'collection/user-words'], function(app, $, Marionette, RoutingModule, Word, TextView, UserWordsView, UserWords) {
 
     var HomeModule = RoutingModule.extend({
 
@@ -30,9 +30,32 @@ define(['app', 'marionette', 'js/app/routing-module', 'view/text-view', 'view/us
             // var textView = new TextView({
             //     text: 'home page'
             // });
-            var userWordsView = new UserWordsView({collection: app.userWords});
-            app.content(userWordsView);
-        }
+            var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
+            
+            $.ajax({
+                   url: apiEndpoint,
+                   data: {
+                      format: 'json'
+                   },
+                   error: function(err) {
+                        console.log(err);
+                    },
+                   success: function(data) {
+                        console.log(data)
+                        var words = data.map(function(word) {
+                            return new Word(word);
+                        });
+                        app.userWordsCollection = new UserWords(words);
+                        var userWordsView = new UserWordsView({collection: app.userWordsCollection});
+                        app.content(userWordsView);                   
+                    },
+                   type: 'GET'
+            });
+    
+                    
+        }    
+            
+        
 
     });
 

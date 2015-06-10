@@ -1,3 +1,3 @@
 <span class="wordtitle"><%= word %></span>
 <span class="word-circle">A</span>
-<span class="worddefinition"><%= definitions[0].definition %></div>
+<span class="worddefinition"><%= results[0].definition %></div>

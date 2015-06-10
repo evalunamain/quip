@@ -1,6 +1,6 @@
 <h6><%= word %></h6>
 <ul>
-	<% definitions.forEach(function (definition) { %>
+	<% results.forEach(function (definition) { %>
 		<li><%= definition.definition %></li>
 	<% }) %>
 </ul>
