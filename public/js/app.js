@@ -51,92 +51,51 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/use
     app.on('start', function() {
         if (!Backbone.history) return;
 
-        var wordTrue = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
+        var wordTrue = new Word({'word': 'true'});
+        var wordBlue = new Word({'word': 'blue'});
+        var wordCat = new Word({'word': 'cat'});
+
+      
+
+        // YOBILLY in addition to bootstrapped data, we add one backbone model loaded from the api.
+        // app.wordCat = wordCat
+        // app.wordCat.fetch();
+        
+        // var wordTrue = new Word({'word': 'true', 
+        //                          'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
+        //                                          {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
+        //                                          {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
+        //                                          {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
+        //                                          {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
+        //                                         ],
+        //                         'pronunciation': '[troo]',
+        //                         'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
+        //                         });
 
 
-        var wordBlue = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
-        var wordRed = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
+        // var wordBlue = new Word({'word': 'true', 
+        //                          'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
+        //                                          {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
+        //                                          {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
+        //                                          {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
+        //                                          {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
+        //                                         ],
+        //                         'pronunciation': '[troo]',
+        //                         'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
+        //                         });
+        // var wordRed = new Word({'word': 'true', 
+        //                          'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
+        //                                          {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
+        //                                          {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
+        //                                          {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
+        //                                          {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
+        //                                         ],
+        //                         'pronunciation': '[troo]',
+        //                         'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
+        //                         });
 
-        var wordGreen = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
-        var wordYellow = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });        
-        var wordPink = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
-        var wordIndigo = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
-        var wordMauve = new Word({'word': 'true', 
-                                 'definitions': [{'definition': 'being in accordance with the actual state or conditions; conforming to reality or fact; not false:', 'example' : 'a true story.'},
-                                                 {'definition': 'real; genuine; authentic:; conforming to reality or fact; not false:', 'example' : 'true gold; true feelings.'},
-                                                 {'definition': 'sincere; not deceitful', 'example' : 'a true interest in someone\'s welfare.'},
-                                                 {'definition': 'firm in allegiance; loyal; faithful; steadfast', 'example' : 'a true friend.'},
-                                                 {'definition': 'being or reflecting the essential or genuine character of something', 'example': 'the true meaning of his statement.'}
-                                                ],
-                                'pronunciation': '[troo]',
-                                'etymology': 'before 900; Middle English trewe (adj. and adv.), Old English trēowe (adj.) loyal, trusty, honest (see trow, truce ); akin to Dutch trouw, German treu, Old Norse tryggr, Gothic triggws'
-                                });
-
-
-        app.userWords = new UserWords([wordBlue,wordTrue,wordGreen,wordYellow,wordPink,wordIndigo,wordMauve]);
+       // app.userWords = new UserWords([wordTrue, wordBlue, wordRed]);
+        app.userWords = ['cat','blue','true'];
 
         require(['module/home'], function() {
             app.Header.show(new NavbarView());

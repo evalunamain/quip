@@ -2,7 +2,9 @@ define(['app', 'backbone', 'model/word'], function(app, Backbone, Word) {
 
     var UserWords = Backbone.Collection.extend({
 
-    	model: Word
+    	model: Word,
+
+    	url: 'api/words/',
 
     });
 
