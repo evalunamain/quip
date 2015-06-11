@@ -1,6 +1,6 @@
 define(['marionette'], function(Marionette) {
 
-    var UserWordExpandedView = Marionette.ItemView.extend({
+    var WordExpandedView = Marionette.ItemView.extend({
 
     	className: '',
 
@@ -9,6 +9,6 @@ define(['marionette'], function(Marionette) {
 
     });
 
-    return UserWordExpandedView;
+    return WordExpandedView;
 
 });

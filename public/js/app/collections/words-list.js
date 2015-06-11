@@ -1,6 +1,6 @@
 define(['app', 'backbone', 'model/word'], function(app, Backbone, Word) {
 
-    var UserWords = Backbone.Collection.extend({
+    var WordsList = Backbone.Collection.extend({
 
     	model: Word,
 
@@ -12,6 +12,6 @@ define(['app', 'backbone', 'model/word'], function(app, Backbone, Word) {
 
     });
 
-    return UserWords;
+    return WordsList;
 
 });
