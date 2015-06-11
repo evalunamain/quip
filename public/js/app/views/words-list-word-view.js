@@ -1,6 +1,6 @@
-define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view', 'jquery-ui'], function(Marionette, UserWordBasicView, UserWordExpandedView) {
+define(['marionette', 'view/word-basic-view', 'view/word-expanded-view', 'jquery-ui'], function(Marionette, WordBasicView, WordExpandedView) {
 
-    var UserWordLayoutView = Marionette.LayoutView.extend({
+    var WordsListWordView = Marionette.LayoutView.extend({
 
     	className: 'wordrow',
 
@@ -25,7 +25,7 @@ define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view
         },
 
         onRender: function() {
-        	var wordBasicView = new UserWordBasicView({model: this.model});
+        	var wordBasicView = new WordBasicView({model: this.model});
         	this.getRegion('wordListed').show(wordBasicView);
         },
 
@@ -37,7 +37,7 @@ define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view
         loadExpandedView: function() {
             this.$el.append($('<div class="word-expanded collapsible-body col s12">'));
             this.addRegion("wordExpanded", ".word-expanded");
-            this.wordExpandedView = new UserWordExpandedView({ model: this.model});
+            this.wordExpandedView = new WordExpandedView({ model: this.model});
             this.getRegion('wordExpanded').show(this.wordExpandedView);
             this.viewModel.set('expanded', true);
             this.toggleExpandedView();
@@ -79,6 +79,6 @@ define(['marionette', 'view/user-word-basic-view', 'view/user-word-expanded-view
 
     });
 
-    return UserWordLayoutView;
+    return WordsListWordView;
 
 });

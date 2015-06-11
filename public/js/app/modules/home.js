@@ -1,7 +1,7 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/text-view', 'view/user-words-view', 'collection/user-words'], function(app, $, Marionette, RoutingModule, Word, TextView, UserWordsView, UserWords) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/text-view', 'view/words-list-view', 'collection/words-list'], function(app, $, Marionette, RoutingModule, Word, TextView, WordsListView, WordsList) {
 
     var HomeModule = RoutingModule.extend({
 
@@ -45,9 +45,9 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
                         var words = data.map(function(word) {
                             return new Word(word);
                         });
-                        app.userWordsCollection = new UserWords(words);
-                        var userWordsView = new UserWordsView({collection: app.userWordsCollection});
-                        app.content(userWordsView);                   
+                        app.userWordsCollection = new WordsList(words);
+                        var wordsListView = new WordsListView({collection: app.userWordsCollection});
+                        app.content(wordsListView);                   
                     },
                    type: 'GET'
             });

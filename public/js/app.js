@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/user-words', 'view/navbar-view'], function(Marionette, Backbone, $, Word, UserWords, NavbarView) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/words-list', 'view/navbar-view'], function(Marionette, Backbone, $, Word, WordsList, NavbarView) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
