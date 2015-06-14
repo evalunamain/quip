@@ -4,20 +4,21 @@
   "description": "Dictionary and word tracker",
   "licence": "MIT",
   "dependencies": {
+    "consolidate": "0.10.0",
+    "elasticsearch": "^5.0.0",
     "express": "4.x",
     "grunt": "0.4.5",
-    "mongodb" : "2.0.33",
-    "mongoose" : "4.0.5",
-    "grunt-contrib-uglify": "0.6.0",
     "grunt-contrib-cssmin": "0.10.0",
-    "grunt-contrib-requirejs": "0.4.4",
     "grunt-contrib-jst": "0.6.0",
+    "grunt-contrib-requirejs": "0.4.4",
     "grunt-contrib-sass": "0.9.2",
+    "grunt-contrib-uglify": "0.6.0",
     "grunt-contrib-watch": "0.6.1",
-    "swagger-client" : "2.1.1",
-    "consolidate": "0.10.0",
+    "node-wordnet": "^0.1.9",
+    "swagger-client": "2.1.1",
     "underscore": "1.7.0",
-    "unirest": "0.4.2"
+    "unirest": "0.4.2",
+    "wndb-with-exceptions": "^3.0.1"
   },
   "author": "William & Eva Main",
   "main": "Gruntfile.js",
@@ -29,8 +30,7 @@
     "test": " "
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/sorokin-evgeni/backbone-marionette-boilerplate.git"
+    "type": "git"
   },
   "keywords": [
     "backbone",
