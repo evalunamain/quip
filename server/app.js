@@ -5,17 +5,31 @@ var express = require('express'),
     app = express(),
     grunt = require('grunt'),
     indexGenerator = require('./template-generator.js'),
+    mongoose = require('mongoose'),
     http = require('http'),
     unirest = require('unirest'),
-    path = require('path');
+    path = require('path'),
+    WordNet = require('node-wordnet');
 
     if (!process.env.WORDSAPI_KEY) {
         var env = require('./env.js')
     }
 
-    var WORDSAPI_KEY = process.env.WORDSAPI_KEY;
-
+var WORDSAPI_KEY = process.env.WORDSAPI_KEY;
 var config = grunt.file.readJSON('config.json');
+
+//Database
+var User = require('./models/user');
+var db = mongoose.connection;
+
+db.on('error', console.error);
+
+mongoose.connect('mongodb://merismic:'+process.env.DB_KEY+'@ds047622.mongolab.com:47622/merismic');
+
+// WORDNET
+var wordnet = new WordNet();
+
+
 
 console.log('Enviroment: ' + config.enviroment);
 if (config.enviroment === 'dev') {
@@ -24,26 +38,23 @@ if (config.enviroment === 'dev') {
     app.use(express.static(path.join(__dirname, '..', 'dist', 'public')));
 }
 
-// app.get('/api/user/(:id)?', function(req, res){
-//     var userId = req.params.id;
+app.get('/api/user/(:email)?', function(req, res){
+    var email = req.params.email;
+    User.findOne({ email: email }, function(err, user) {
+      if (err) return console.error(err);
+      res.json(user);
+    });
+});
 
-//     if (!userId) {
-//         res.json({
-//             login: 'terminator',
-//             name: 'Arnoldo Shunzenfegeld',
-//             language: 'ru',
-//             id: '1'
-//         });
-//         return;
-//     }
+app.get('/api/wordnet/(:word)', function(req, res){
+   var word = req.params.word;
+    wordnet.lookup(word,function (result) {
+        res.json(result);
+    });
+ });
 
-//     res.json({
-//         id: req.params.id,
-//         login: 'randomuser',
-//         name: 'Random',
-//         language: 'en'
-//     });
-// });
+
+
 app.get('/api/words/(:words)', function(req, res){
    var words = JSON.parse(req.params.words);
    console.log("REQUEST ARRAY : " + words);

@@ -1,0 +1,572 @@
+[2015-06-14 17:10:00,488][INFO ][node                     ] [Deacon Frost] version[1.6.0], pid[12242], build[cdd3ac4/2015-06-09T13:36:34Z]
+[2015-06-14 17:10:00,489][INFO ][node                     ] [Deacon Frost] initializing ...
+[2015-06-14 17:10:00,494][INFO ][plugins                  ] [Deacon Frost] loaded [], sites []
+[2015-06-14 17:10:00,593][INFO ][env                      ] [Deacon Frost] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [55.7gb], net total_space [111.8gb], types [hfs]
+[2015-06-14 17:10:04,301][INFO ][node                     ] [Deacon Frost] initialized
+[2015-06-14 17:10:04,301][INFO ][node                     ] [Deacon Frost] starting ...
+[2015-06-14 17:10:04,596][INFO ][transport                ] [Deacon Frost] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.3:9300]}
+[2015-06-14 17:10:04,663][INFO ][discovery                ] [Deacon Frost] elasticsearch/fS4ToNXMSZeYRK6AFsuXMg
+[2015-06-14 17:10:08,465][INFO ][cluster.service          ] [Deacon Frost] new_master [Deacon Frost][fS4ToNXMSZeYRK6AFsuXMg][Williams-Air.home][inet[/192.168.1.3:9300]], reason: zen-disco-join (elected_as_master)
+[2015-06-14 17:10:08,485][INFO ][http                     ] [Deacon Frost] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.3:9200]}
+[2015-06-14 17:10:08,485][INFO ][node                     ] [Deacon Frost] started
+[2015-06-14 17:10:08,511][INFO ][gateway                  ] [Deacon Frost] recovered [0] indices into cluster_state
+[2015-06-14 18:35:07,025][INFO ][node                     ] [Deacon Frost] stopping ...
+[2015-06-14 18:35:07,063][INFO ][node                     ] [Deacon Frost] stopped
+[2015-06-14 18:35:07,063][INFO ][node                     ] [Deacon Frost] closing ...
+[2015-06-14 18:35:07,072][INFO ][node                     ] [Deacon Frost] closed
+[2015-06-14 18:35:09,237][INFO ][node                     ] [Captain Fate] version[1.6.0], pid[12564], build[cdd3ac4/2015-06-09T13:36:34Z]
+[2015-06-14 18:35:09,238][INFO ][node                     ] [Captain Fate] initializing ...
+[2015-06-14 18:35:09,245][INFO ][plugins                  ] [Captain Fate] loaded [], sites [head]
+[2015-06-14 18:35:09,296][INFO ][env                      ] [Captain Fate] using [1] data paths, mounts [[/ (/dev/disk1)]], net usable_space [55.9gb], net total_space [111.8gb], types [hfs]
+[2015-06-14 18:35:11,850][INFO ][node                     ] [Captain Fate] initialized
+[2015-06-14 18:35:11,851][INFO ][node                     ] [Captain Fate] starting ...
+[2015-06-14 18:35:12,104][INFO ][transport                ] [Captain Fate] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.3:9300]}
+[2015-06-14 18:35:12,151][INFO ][discovery                ] [Captain Fate] elasticsearch/mb55j76sQLacvZNGL2yt-Q
+[2015-06-14 18:35:15,950][INFO ][cluster.service          ] [Captain Fate] new_master [Captain Fate][mb55j76sQLacvZNGL2yt-Q][Williams-Air.home][inet[/192.168.1.3:9300]], reason: zen-disco-join (elected_as_master)
+[2015-06-14 18:35:15,994][INFO ][http                     ] [Captain Fate] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.3:9200]}
+[2015-06-14 18:35:15,995][INFO ][node                     ] [Captain Fate] started
+[2015-06-14 18:35:16,008][INFO ][gateway                  ] [Captain Fate] recovered [0] indices into cluster_state
+[2015-06-14 18:37:40,393][INFO ][cluster.metadata         ] [Captain Fate] [.marvel-kibana] creating index, cause [auto(index api)], templates [], shards [5]/[1], mappings [appdata]
+[2015-06-14 18:37:40,766][INFO ][cluster.metadata         ] [Captain Fate] [.marvel-kibana] update_mapping [appdata] (dynamic)
+[2015-06-14 19:02:06,774][INFO ][cluster.metadata         ] [Captain Fate] [merismic] creating index, cause [auto(index api)], templates [], shards [5]/[1], mappings [users]
+[2015-06-14 19:02:06,865][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [users] (dynamic)
+[2015-06-14 19:05:30,532][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [users] (dynamic)
+[2015-06-14 19:10:47,048][INFO ][cluster.metadata         ] [Captain Fate] [[merismic]] remove_mapping [[users]]
+[2015-06-14 19:11:39,619][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 19:11:55,458][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 19:13:49,332][INFO ][cluster.metadata         ] [Captain Fate] [.marvel-kibana] deleting index
+[2015-06-14 19:15:54,602][DEBUG][action.search.type       ] [Captain Fate] [merismic][3], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6ccb2e46] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:15:54,603][DEBUG][action.search.type       ] [Captain Fate] [merismic][0], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6ccb2e46] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:15:54,603][DEBUG][action.search.type       ] [Captain Fate] [merismic][1], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6ccb2e46]
+org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:15:54,602][DEBUG][action.search.type       ] [Captain Fate] [merismic][4], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6ccb2e46] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:15:54,602][DEBUG][action.search.type       ] [Captain Fate] [merismic][2], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6ccb2e46] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:15:54,618][DEBUG][action.search.type       ] [Captain Fate] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,922][DEBUG][action.search.type       ] [Captain Fate] [merismic][1], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4d49b6ca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,922][DEBUG][action.search.type       ] [Captain Fate] [merismic][0], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4d49b6ca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,922][DEBUG][action.search.type       ] [Captain Fate] [merismic][2], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4d49b6ca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,922][DEBUG][action.search.type       ] [Captain Fate] [merismic][3], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4d49b6ca] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,922][DEBUG][action.search.type       ] [Captain Fate] [merismic][4], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4d49b6ca]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:16:06,925][DEBUG][action.search.type       ] [Captain Fate] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,782][DEBUG][action.search.type       ] [Captain Fate] [merismic][0], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@48070f51] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,782][DEBUG][action.search.type       ] [Captain Fate] [merismic][4], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@48070f51]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,782][DEBUG][action.search.type       ] [Captain Fate] [merismic][3], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@48070f51] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,782][DEBUG][action.search.type       ] [Captain Fate] [merismic][1], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@48070f51] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,782][DEBUG][action.search.type       ] [Captain Fate] [merismic][2], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@48070f51] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:25:33,795][DEBUG][action.search.type       ] [Captain Fate] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"bool":{"must":[{"text":{"user.email":"billycmain@gmail.com"}}],"must_not":[],"should":[]}},"from":0,"size":10,"sort":[],"facets":{}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [merismic] No query registered for [text]
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:300)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:93)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:302)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:719)
+	... 9 more
+[2015-06-14 19:44:09,307][DEBUG][action.search.type       ] [Captain Fate] [merismic][3], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@18a47f27]
+org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 19:44:09,307][DEBUG][action.search.type       ] [Captain Fate] [merismic][2], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@18a47f27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][2]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 19:44:09,307][DEBUG][action.search.type       ] [Captain Fate] [merismic][0], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@18a47f27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][0]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 19:44:09,307][DEBUG][action.search.type       ] [Captain Fate] [merismic][4], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@18a47f27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][4]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 19:44:09,307][DEBUG][action.search.type       ] [Captain Fate] [merismic][1], node[mb55j76sQLacvZNGL2yt-Q], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@18a47f27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][1]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 19:44:09,319][DEBUG][action.search.type       ] [Captain Fate] All shards failed for phase: [query]
+org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"term":{"email":"billycmain@gmail.com"}}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:735)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:560)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:532)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:294)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.search.SearchParseException: [merismic][3]: from[-1],size[-1]: Parse Failure [No parser for element [term]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:717)
+	... 9 more
+[2015-06-14 20:23:28,221][DEBUG][action.admin.indices.mapping.put] [Captain Fate] failed to put mappings on indices [[merismic]], type [user]
+org.elasticsearch.index.mapper.MapperParsingException: No type specified for property [email]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:282)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:214)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:136)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:211)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:192)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:449)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$4.execute(MetaDataMappingService.java:505)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:374)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:188)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:158)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-06-14 20:23:47,529][DEBUG][action.admin.indices.mapping.put] [Captain Fate] failed to put mappings on indices [[merismic]], type [user]
+org.elasticsearch.index.mapper.MapperParsingException: Analyzer [uax_url_email] not found for field [email]
+	at org.elasticsearch.index.mapper.core.TypeParsers.parseField(TypeParsers.java:213)
+	at org.elasticsearch.index.mapper.core.StringFieldMapper$TypeParser.parse(StringFieldMapper.java:153)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:290)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:214)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:136)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:211)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parseCompressed(DocumentMapperParser.java:192)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:449)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$4.execute(MetaDataMappingService.java:505)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:374)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:188)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:158)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-06-14 20:28:52,000][INFO ][cluster.metadata         ] [Captain Fate] [[merismic]] remove_mapping [[user]]
+[2015-06-14 20:33:06,792][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [analysis] (dynamic)
+[2015-06-14 20:37:06,930][INFO ][cluster.metadata         ] [Captain Fate] [merismic] deleting index
+[2015-06-14 20:41:40,447][INFO ][cluster.metadata         ] [Captain Fate] [merismic] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2015-06-14 20:43:03,120][INFO ][cluster.metadata         ] [Captain Fate] [merismic] create_mapping [user]
+[2015-06-14 20:46:16,491][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 20:46:45,916][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 21:03:18,193][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 21:21:54,786][INFO ][cluster.metadata         ] [Captain Fate] [merismic] deleting index
+[2015-06-14 21:24:56,469][INFO ][cluster.metadata         ] [Captain Fate] [merismic] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2015-06-14 21:25:05,174][INFO ][cluster.metadata         ] [Captain Fate] [merismic] create_mapping [user]
+[2015-06-14 21:25:36,462][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 21:25:53,549][INFO ][cluster.metadata         ] [Captain Fate] [merismic] update_mapping [user] (dynamic)
+[2015-06-14 21:58:13,548][INFO ][node                     ] [Captain Fate] stopping ...
+[2015-06-14 21:58:13,640][INFO ][node                     ] [Captain Fate] stopped
+[2015-06-14 21:58:13,640][INFO ][node                     ] [Captain Fate] closing ...
+[2015-06-14 21:58:13,654][INFO ][node                     ] [Captain Fate] closed
