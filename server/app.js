@@ -8,8 +8,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     http = require('http'),
     unirest = require('unirest'),
-    path = require('path'),
-    WordNet = require('node-wordnet');
+    path = require('path');
 
     if (!process.env.WORDSAPI_KEY) {
         var env = require('./env.js')
@@ -45,14 +44,6 @@ app.get('/api/user/(:email)?', function(req, res){
       res.json(user);
     });
 });
-
-app.get('/api/wordnet/(:word)', function(req, res){
-   var word = req.params.word;
-    wordnet.lookup(word,function (result) {
-        res.json(result);
-    });
- });
-
 
 
 app.get('/api/words/(:words)', function(req, res){

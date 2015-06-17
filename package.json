@@ -16,11 +16,10 @@
     "grunt-contrib-watch": "0.6.1",
     "mongodb": "^2.0.33",
     "mongoose": "^4.0.5",
-    "node-wordnet": "^0.1.9",
+    "passport": "^0.2.2",
     "swagger-client": "2.1.1",
     "underscore": "1.7.0",
-    "unirest": "0.4.2",
-    "wndb-with-exceptions": "^3.0.1"
+    "unirest": "0.4.2"
   },
   "author": "William & Eva Main",
   "main": "Gruntfile.js",

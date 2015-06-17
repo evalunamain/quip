@@ -6,20 +6,20 @@ var userSchema = new mongoose.Schema({
         required: true
     },
     passwordHash: {
-    	type: String,
-    	required: true
+        type: String,
+        required: true
     },
     wordLists: {
-    	type: mongoose.Schema.Types.Mixed,
-    	required: false
+        type: mongoose.Schema.Types.Mixed,
+        required: false
     },
     dateJoined: {
-    	type: Date,
-    	required: true
+        type: Date,
+        required: true
     },
     settings: {
-    	type: mongoose.Schema.Types.Mixed,
-    	required: false
+        type: mongoose.Schema.Types.Mixed,
+        required: false
     }
 
 
