@@ -10218,6 +10218,24 @@ body {
   clear: both;
 }
 
+.log-in-form {
+  display: inline-block;
+  float: right;
+}
+.log-in-form input {
+  width: auto;
+}
+
+.login-section {
+  float: left;
+  display: inline-block;
+}
+
+.form-button {
+  padding: 0 30px;
+  color: #455a64;
+}
+
 .wordrow {
   margin-bottom: 0;
 }

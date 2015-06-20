@@ -1,13 +1,16 @@
 <nav>
   <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">Merismic</a>
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label for="search"><i class="mdi-action-search"></i></label>
-          <i class="mdi-navigation-close"></i>
-        </div>
-      </form>
-
+    <a href="#!" class="brand-logo center">Merismic</a>
+    <form action="" class="log-in-form">
+      <div class="login-section">
+        <label for="email">Email</label>
+        <input type="text" id="email">
+      </div>
+      <div class="login-section">
+        <label for="password">Password</label>
+        <input type="password" id="password">
+      </div>
+      <button type="submit" class="form-button">Log in</button>
+    </form>
   </div>
 </nav>
