@@ -1,16 +1,25 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo center">Merismic</a>
-    <form action="" class="log-in-form">
-      <div class="login-section">
-        <label for="email">Email</label>
-        <input type="text" id="email">
-      </div>
-      <div class="login-section">
-        <label for="password">Password</label>
-        <input type="password" id="password">
-      </div>
-      <button type="submit" class="form-button">Log in</button>
+    <a href="#!" class="brand-logo">Merismic</a>
+   
+    <form class="search-field center">
+        <div class="">
+          <input type="search" id="search" class="search-input">
+          <label for="search"><i class="mdi-action-search"></i></label>
+        </div>
     </form>
+    <div class="nav-items">
+      <form action="" class="log-in-form nav-item">
+        <div class="login-section">
+          <label for="email">Email</label>
+          <input type="text" id="email">
+        </div>
+        <div class="login-section">
+          <label for="password">Password</label>
+          <input type="password" id="password">
+        </div>
+        <button type="submit" class="form-button">Log in</button>
+      </form>
+    </div>
   </div>
 </nav>

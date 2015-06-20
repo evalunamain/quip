@@ -1,13 +1,14 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/text-view', 'view/words-list-view', 'collection/words-list'], function(app, $, Marionette, RoutingModule, Word, TextView, WordsListView, WordsList) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'collection/words-list'], function(app, $, Marionette, RoutingModule, Word, WordsListView, WordsList) {
 
     var HomeModule = RoutingModule.extend({
 
         startWithParent: false,
 
         routesList: {
+            'word': 'homeAction',
             'home': 'homeAction',
             '': 'homeAction'
         },

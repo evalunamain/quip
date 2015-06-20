@@ -50,7 +50,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/wor
 
         app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
 
-        require(['module/home'], function() {
+        require(['module/home', 'module/words'], function() {
             app.Header.show(new NavbarView());
             Backbone.history.start({pushState: true});
         });
