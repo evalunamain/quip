@@ -66,7 +66,6 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                     url: endpoint,
                     type: 'GET',
                     dataType: 'json',
-                    data: params
                 }).done(function(data) {
 
                 }).fail(function(err, jqXHR) {
