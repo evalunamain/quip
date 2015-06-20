@@ -8,6 +8,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
         startWithParent: false,
 
         routesList: {
+            'word': 'homeAction',
             'home': 'homeAction',
             '': 'homeAction'
         },

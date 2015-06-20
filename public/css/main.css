@@ -10208,6 +10208,16 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em;
   }
 }
+.search-field {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 body {
   background-color: #FAFAFA;
 }
@@ -10218,12 +10228,51 @@ body {
   clear: both;
 }
 
-.log-in-form {
-  display: inline-block;
+.nav-items {
   float: right;
 }
+
+.nav-item {
+  float: left;
+}
+
+.search-field {
+  display: inline-block;
+  width: 250px;
+}
+
+input.search-input {
+  height: calc(100% * 2/3);
+  padding-left: 2rem;
+  transition: all 3s;
+}
+input.search-input.invalid {
+  transition: none;
+}
+input.search-input + label {
+  left: 0;
+  color: #9e9e9e;
+  position: absolute;
+  top: -.25rem;
+}
+input.search-input + label i {
+  font-size: 1.75rem;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  transition: color 0.3s;
+}
+input.search-input + label.active i {
+  color: #648391;
+}
+
+.log-in-form {
+  display: inline-block;
+}
 .log-in-form input {
-  width: auto;
+  height: auto;
+  width: 125px;
 }
 
 .login-section {
