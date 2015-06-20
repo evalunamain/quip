@@ -23,19 +23,19 @@ define(['app', 'backbone'], function(app, Backbone) {
         })
 		  },
 
-		  signOut: function(options){
-		    var model = this;
+		  // signOut: function(options){
+		  //   var model = this;
 
-		    $.ajax({
-		      url: ,
-		      type: "DELETE",
-		      dataType: "json",
-		      success: function(data){
-		        model.clear();
-		        options.success && options.success();
-		      }
-		    });
-		  }
+		  //   $.ajax({
+		  //     url: ,
+		  //     type: "DELETE",
+		  //     dataType: "json",
+		  //     success: function(data){
+		  //       model.clear();
+		  //       options.success && options.success();
+		  //     }
+		  //   });
+		  // }
 	 
     });
 
