@@ -55,7 +55,6 @@ if (config.enviroment === 'dev') {
 }
 
 app.post('/api/signup', function (req, res, next) {
-    console.log(req.body);
     passport.authenticate('local-signup', function(err, user, info) {
     if (err) {
       return next(err); // will generate a 500 error
@@ -73,6 +72,22 @@ app.post('/api/signup', function (req, res, next) {
     });
   })(req, res, next);
 });
+
+app.post('/api/login', function (req, res, next) {
+    console.log(req.body);
+    passport.authenticate('local-login', function(err, user, info) {
+    if (err) {
+      return next(err); // will generate a 500 error
+    }
+    // Generate a JSON response reflecting authentication status
+    if (!user) {
+      return res.send({err: err, info: info, success : false, message : 'authentication failed' });
+    }
+    console.log(req.session.passport.user);
+    return res.send({ success : true, message : 'authentication succeeded', user: user });
+  })(req, res, next);
+});
+
 
 app.get('/api/user/(:email)?', function(req, res){
     var email = req.params.email;
