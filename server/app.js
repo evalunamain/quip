@@ -8,10 +8,14 @@ var express = require('express'),
     mongoose = require('mongoose'),
     http = require('http'),
     unirest = require('unirest'),
+    passport = require('passport'),
+    cookieParser = require('cookie-parser'),
+    bodyParser   = require('body-parser'),
+    session = require('express-session'),
     path = require('path');
 
     if (!process.env.WORDSAPI_KEY) {
-        var env = require('./env.js')
+        var env = require('./config/env.js')
     }
 
 var WORDSAPI_KEY = process.env.WORDSAPI_KEY;
@@ -23,12 +27,25 @@ var db = mongoose.connection;
 
 db.on('error', console.error);
 
-mongoose.connect('mongodb://merismic:'+process.env.DB_KEY+'@ds047622.mongolab.com:47622/merismic');
+mongoose.connect(process.env.DB_URL);
 
-// WORDNET
-var wordnet = new WordNet();
+require('./config/passport')(passport);
 
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
+app.use(bodyParser.json());
+
+app.use(session({ 
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+})); // session secret
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 console.log('Enviroment: ' + config.enviroment);
 if (config.enviroment === 'dev') {
@@ -36,6 +53,26 @@ if (config.enviroment === 'dev') {
 } else {
     app.use(express.static(path.join(__dirname, '..', 'dist', 'public')));
 }
+
+app.post('/api/signup', function (req, res, next) {
+    console.log(req.body);
+    passport.authenticate('local-signup', function(err, user, info) {
+    if (err) {
+      return next(err); // will generate a 500 error
+    }
+    // Generate a JSON response reflecting authentication status
+    if (!user) {
+      return res.send({err: err, info: info, success : false, message : 'authentication failed' });
+    }
+
+    req.login(user, function (err) {
+        if(err){
+            return next(err);
+        }
+        return res.send({ success : true, message : 'authentication succeeded' });
+    });
+  })(req, res, next);
+});
 
 app.get('/api/user/(:email)?', function(req, res){
     var email = req.params.email;

@@ -1,6 +1,6 @@
 .sass-cache
 dist
 node_modules
-server/env.js
+server/config/env.js
 mongo
 data
