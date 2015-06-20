@@ -1,11 +1,6 @@
-
 define(['app', 'backbone'], function(app, Backbone) {
 
     var Word = Backbone.Model.extend({
-
-    	initialize: function() {
-    		console.log(this.get('word'));
-    	},
 
 	    url: function() {
 	    	return 'api/word/' + this.get('word');

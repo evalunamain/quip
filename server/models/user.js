@@ -2,9 +2,11 @@ var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = new mongoose.Schema({
+    email: 'String',
+
     local : {
         email: String,
-        password: String
+        password: String,
     },
     wordLists: {
         type: mongoose.Schema.Types.Mixed,
@@ -12,7 +14,7 @@ var userSchema = new mongoose.Schema({
     },
     dateJoined: {
         type: Date,
-        required: true
+        required: true,
     },
     settings: {
         type: mongoose.Schema.Types.Mixed,

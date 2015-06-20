@@ -1,10 +1,15 @@
-define(['marionette', 'jquery'], function(Marionette, $) {
+define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
     	className: 'navbar-fixed',
 
         template: '#navbar',
+
+        initialize: function () {
+            var user = new User();
+            console.log(user);
+        },
 
         events: {
             'click a': function(event) {
@@ -25,7 +30,8 @@ define(['marionette', 'jquery'], function(Marionette, $) {
                 dataType: 'json',
                 data: params
             }).done(function(data) {
-                debugger
+                var user = new User(data.user);
+                console.log(user);
             }).fail(function(err, jqXHR) {
                 debugger
             })

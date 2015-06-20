@@ -64,17 +64,17 @@ app.post('/api/signup', function (req, res, next) {
       return res.send({err: err, info: info, success : false, message : 'authentication failed' });
     }
 
-    req.login(user, function (err) {
+    console.log(user);
+    req.login(user, function (err, user) {
         if(err){
             return next(err);
         }
-        return res.send({ success : true, message : 'authentication succeeded' });
+        return res.send({success : true, message : 'authentication succeeded' });
     });
   })(req, res, next);
 });
 
 app.post('/api/login', function (req, res, next) {
-    console.log(req.body);
     passport.authenticate('local-login', function(err, user, info) {
     if (err) {
       return next(err); // will generate a 500 error
@@ -83,7 +83,9 @@ app.post('/api/login', function (req, res, next) {
     if (!user) {
       return res.status(401).send({err: err, info: info, success : false, message : 'authentication failed' });
     }
-    console.log(req.session.passport.user);
+    
+    var user = user.toObject();
+    delete user.local; //Don't send back credentials
     return res.send({ success : true, message : 'authentication succeeded', user: user });
   })(req, res, next);
 });
