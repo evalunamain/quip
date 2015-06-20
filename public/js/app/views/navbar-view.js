@@ -4,6 +4,14 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
     	
     	className: 'navbar-fixed',
 
+        initialize: function () {
+           
+        },
+
+        test: function (e) {
+            console.log('signed in', e);
+        },
+
         template: '#navbar',
 
         initialize: function () {
@@ -24,17 +32,20 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 email: $('#email').val(),
                 password: $('#password').val()
             }
-            $.ajax({
-                url: '/api/login',
-                type: 'post',
-                dataType: 'json',
-                data: params
-            }).done(function(data) {
-                var user = new User(data.user);
-                console.log(user);
-            }).fail(function(err, jqXHR) {
-                debugger
-            })
+
+            app.currentUser.signIn(params);
+            // debugger
+            // $.ajax({
+            //     url: '/api/login',
+            //     type: 'post',
+            //     dataType: 'json',
+            //     data: params
+            // }).done(function(data) {
+            //     var user = new User(data.user);
+            //     console.log(user);
+            // }).fail(function(err, jqXHR) {
+            //     debugger
+            // })
         }
 
     });

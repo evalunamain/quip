@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/words-list', 'view/navbar-view'], function(Marionette, Backbone, $, Word, WordsList, NavbarView) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', 'collection/words-list', 'view/navbar-view'], function(Marionette, Backbone, $, Word, User, WordsList, NavbarView) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
@@ -49,6 +49,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'collection/wor
         if (!Backbone.history) return;
 
         app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
+        app.currentUser = new User();
 
         require(['module/home'], function() {
             app.Header.show(new NavbarView());
