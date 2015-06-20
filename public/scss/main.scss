@@ -10,6 +10,25 @@ body {
 	clear: both;
 }
 
+.log-in-form {
+	display: inline-block;
+	float: right; 
+
+	input {
+		width: auto;
+	}
+}
+
+.login-section {
+	float: left;
+	display: inline-block;
+}
+
+.form-button {
+	padding: 0 30px;
+	color: $primary-color;
+}
+
 .wordrow {
 	@extend .row;
 	margin-bottom: 0;

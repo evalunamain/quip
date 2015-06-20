@@ -81,7 +81,7 @@ app.post('/api/login', function (req, res, next) {
     }
     // Generate a JSON response reflecting authentication status
     if (!user) {
-      return res.send({err: err, info: info, success : false, message : 'authentication failed' });
+      return res.status(401).send({err: err, info: info, success : false, message : 'authentication failed' });
     }
     console.log(req.session.passport.user);
     return res.send({ success : true, message : 'authentication succeeded', user: user });
