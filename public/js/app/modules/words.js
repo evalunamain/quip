@@ -1,7 +1,7 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'view/word-expanded-view', 'collection/words-list'], function(app, $, Marionette, RoutingModule, Word, WordsListView, WordExpandedView, WordsList) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/word-expanded-view'], function(app, $, Marionette, RoutingModule, Word, WordExpandedView) {
 
     var WordsModule = RoutingModule.extend({
 
@@ -25,30 +25,22 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
         },
 
         defSearch: function(word) {
-         debugger
-            var apiEndpoint = 'http://localhost:3000/api/word' + word;
-            
-            $.ajax({
-                   url: apiEndpoint,
-                   data: {
-                      format: 'json'
-                   },
-                   error: function(err) {
-                        console.log(err);
-                    },
-                   success: function(data) {
-                        var wordModel = new Word(data);
-                        var resultView = new WordExpandedView({model: wordModel});
-                        app.content(resultView);                   
-                    },
-                   type: 'GET'
+          var apiEndpoint = 'http://localhost:3000/api/word/' + word;
+          
+          $.ajax({
+            url: apiEndpoint,
+            type: 'GET',
+            dataType:'json',
+            }).done(function(data, textStatus, jqXHR) {
+              var wordModel = new Word(data);
+              var resultView = new WordExpandedView({model: wordModel});
+              app.content(resultView);  
+            }).fail(function(data) {
+              console.log(data);                  
             });
+           
+        }
     
-                    
-        }    
-            
-        
-
     });
 
     return app.module('words', WordsModule);
