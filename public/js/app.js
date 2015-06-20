@@ -48,13 +48,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     app.on('start', function() {
         if (!Backbone.history) return;
 
-         app.Radio = Marionette.Radio;
-         // app.Radio.channel('auth');
-         // app.Radio.channel('search');
-
-
-
-
+        app.Radio = Marionette.Radio;
 
         app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
         app.currentUser = new User();
