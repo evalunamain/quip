@@ -1,5 +1,15 @@
 @import '../bower_components/materialize/sass/materialize.scss';
 
+%horizontal-align {
+	position: relative;
+	left: 50%;
+	 -webkit-transform: translateX(-50%);
+	 -moz-transform: translateX(-50%);
+	 -ms-transform: translateX(-50%);
+	 -o-transform: translateX(-50%);
+	 transform: translateX(-50%);
+}
+
 body {
 	background-color: #FAFAFA;
 }
@@ -10,12 +20,52 @@ body {
 	clear: both;
 }
 
+.nav-items {
+	float: right;
+}
+
+.nav-item {
+	float: left;
+}
+
+.search-field {
+	@extend %horizontal-align;
+	display: inline-block;
+	width: 250px;
+}
+
+input.search-input {
+	height: calc(100% * 2/3);
+	padding-left: 2rem;
+	transition: all 3s;
+
+	&.invalid {
+		transition: none;
+	}
+
+	& + label {
+		left: 0;
+		color: #9e9e9e;
+  		position: absolute;
+  		top: -.25rem;
+
+  		& i {
+  			font-size: 1.75rem;
+  			@include transition(color .3s);
+  		}
+
+  		&.active i {
+  			color: $primary-color-light;
+  		}
+  	}
+}
+
 .log-in-form {
 	display: inline-block;
-	float: right; 
 
 	input {
-		width: auto;
+		height: auto;
+		width: 125px;
 	}
 }
 
@@ -77,3 +127,4 @@ body {
 	float: left;
 	font-size: 12px;
 }
+

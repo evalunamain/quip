@@ -11,7 +11,6 @@ define(['app', 'marionette', 'backbone', 'jquery'], function(app, Marionette, Ba
 
             this.router = new Backbone.Router();
 
-
             for (var route in this.routesList) {
                 if (!this.routesList.hasOwnProperty(route)) continue;
                 var routeName = this.routesList[route];
