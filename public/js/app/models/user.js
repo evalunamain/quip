@@ -1,4 +1,4 @@
-define(['app', 'backbone'], function(app, Backbone) {
+define(['backbone'], function(Backbone) {
 
     var User = Backbone.Model.extend({
 
@@ -16,8 +16,9 @@ define(['app', 'backbone'], function(app, Backbone) {
           dataType: 'json',
           data: credentials
         }).done(function(data){
-	        model.set(data);
-	      	// TODO: trigger signIn event
+	        model.set(data.user);
+	      	var userChannel = app.Radio.channel('auth');
+	      	userChannel.trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
         })

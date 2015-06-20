@@ -4,8 +4,14 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
     	
     	className: 'navbar-fixed',
 
+        initialize: function() {
+            var authChannel = app.Radio.channel('auth');
+            var self = this;
+            authChannel.on('signIn', self.test);
+        },
+
         test: function (e) {
-            console.log('signed in', e);
+            console.log('signed in');
         },
 
         template: '#navbar',
