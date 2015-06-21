@@ -124,6 +124,14 @@ app.get('/api/user/(:email)?', function(req, res){
     });
 });
 
+app.post('/api/addtolist', auth, function (req, res, next) {
+   var wordList = req.body.wordList;
+   var word = req.body.word;
+   
+   
+
+
+});
 
 app.get('/api/words/(:words)', function(req, res){
    var words = JSON.parse(req.params.words);
