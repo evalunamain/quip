@@ -1,0 +1,5 @@
+<div class="s10 m8 col error-container center-align">
+	<h1>Oops!</h1>
+	<h2>Something went wrong:</h2>
+	<h3><%= message %></h3>
+</div>

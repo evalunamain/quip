@@ -1,7 +1,7 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/word-expanded-view'], function(app, $, Marionette, RoutingModule, Word, WordExpandedView) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/search-result-view', 'view/error-view'], function(app, $, Marionette, RoutingModule, Word, SearchResultView, ErrorView) {
 
     var WordsModule = RoutingModule.extend({
 
@@ -13,7 +13,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
         initialize: function() {
             RoutingModule.prototype.initialize.apply(this, arguments);
-            console.log('HomeModule initialize');
+            console.log('WordsModule initialize');
         },
 
         onStart: function() {
@@ -33,10 +33,11 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
             dataType:'json',
             }).done(function(data, textStatus, jqXHR) {
               var wordModel = new Word(data);
-              var resultView = new WordExpandedView({model: wordModel});
+              var resultView = new SearchResultView({model: wordModel});
               app.content(resultView);  
-            }).fail(function(data) {
-              console.log(data);                  
+            }).fail(function(jqXHR) {
+              var errView = new ErrorView({model: new Backbone.Model({message: jqXHR.responseText})}); 
+              app.content(errView);               
             });
            
         }

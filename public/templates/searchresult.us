@@ -1,0 +1,15 @@
+<div class="col s12 m10 search-result">
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title"><%= word %></span>
+			<ul>
+				<% results.forEach(function (definition) { %>
+					<li><%= definition.definition %></li>
+				<% }) %>
+			</ul>
+			<div class="card-action">
+					<a href="" class="card-action-link">Save to Word List</a>
+			</div>
+		</div>	
+	</div>
+</div>
