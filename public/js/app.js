@@ -54,8 +54,9 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
             app.currentUser = new User(data);
             console.log('user session found', app.currentUser);
         }).fail(function (data, a, b) {
-            console.log(app.currentUser);
-            delete app.currentUser;
+            if (app.currentUser) {
+                delete app.currentUser;
+            }
         })
     });
 
@@ -88,7 +89,3 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     return app;
 });
 
-wordLists = {
-     'Favorites' : ['syzygy','truculent','risible', 'orotund'],
-     'Virgin Suicides': ["ephemeral", "febrile", "calamity", "harlot"]
-}
