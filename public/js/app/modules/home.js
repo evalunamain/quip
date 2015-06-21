@@ -33,7 +33,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
                 return;
             } else {
             
-            app.userWords = app.currentUser.get('wordLists')['Virgin Suicides'];
+            app.userWords = ['syzygy','truculent','risible', 'orotund'];
             
             var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
             
@@ -59,42 +59,10 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
         }
     
                     
-        },
-
-        getCollection: function (array, collection) {
-            var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
-            
-            $.ajax({
-                   url: apiEndpoint,
-                   data: {
-                      format: 'json'
-                   },
-                   error: function(err) {
-                        console.log(err);
-                    },
-                   success: function(data) {
-                        console.log(data)
-                        var words = data.map(function(word) {
-                            return new Word(word);
-                        });
-                        app.userWordsCollection = new WordsList(words);
-                        var wordsListView = new WordsListView({collection: app.userWordsCollection});
-                        app.content(wordsListView);                   
-                    },
-                   type: 'GET'
-            });
-        }  
-            
-        
+      },  
 
     });
 
     return app.module('home', HomeModule);
 
 });
-
-
-
-
-
-

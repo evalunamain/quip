@@ -65,9 +65,6 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
         app.Radio = Marionette.Radio;
 
-        // app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
-        // app.userWords = ["syzygy", "truculent", "orotund", "risible"];
-        // app.currentUser = new User();
 
         require(['module/home', 'module/words'], function() {
             app.Header.show(new NavbarView());
