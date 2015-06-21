@@ -124,7 +124,51 @@ app.get('/api/user/(:email)?', function(req, res){
     });
 });
 
+app.post('/api/addtolist', auth, function (req, res, next) {
+   //var wordList = '"wordLists.'+req.body.wordList+'"';
+   var wordList = req.body.wordList;
 
+
+   var word = req.body.word;
+
+   var conditions = {_id : req.user._id},
+       update = { $set : {wordList:word}},
+       options = {upsert: false};
+
+    // User.update(conditions, update, options, function(err, docs){
+    //     console.log(docs)
+    //     if (err) res.status(404).send(err);
+    //     if(docs > 0) {
+    //         res.send({successMsg: word + " succesffully added to " + wordList + " wordlist."});
+    //     }
+    //     else {
+    //         res.status(404).send("No documents updated.")
+    //     }
+        
+    // });
+
+    User.findOne({ _id : req.user._id}, function (err, user){
+        userObj = user.toObject();
+        console.log(userObj);
+        if (!req.user.wordLists[wordList]) {
+            userObj.wordLists[wordList] = {};
+        }
+        if (userObj.wordLists[wordList][word] === undefined) {
+             userObj.wordLists[wordList][word] = {updated_at: new Date()};
+        } else {
+            erMsg = '"' + word + '" is already in your ' + wordList + ' word list.';
+            res.send({error: erMsg});
+        }
+        if (userObj.wordLists.Favorites[word] === undefined) userObj.wordLists.Favorites[word] = {updated_at: new Date()};
+        User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
+            if (err) res.send(err);
+            res.send(200);
+        });
+    });
+});
+
+
+   
 app.get('/api/words/(:words)', function(req, res){
    var words = JSON.parse(req.params.words);
    console.log("REQUEST ARRAY : " + words);

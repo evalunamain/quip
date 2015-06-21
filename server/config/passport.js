@@ -64,6 +64,7 @@ module.exports = function(passport) {
                     newUser.local.email    = email;
 		            newUser.local.password = newUser.generateHash(password);
 		            newUser.dateJoined = Date.now();
+                    newUser.wordLists = {'Favorites' : []};
 
 		            // save the user
 		            newUser.save(function(err) {
