@@ -45,13 +45,26 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
         }
     });
 
+    app.on('before:start', function () {
+        console.log('before start log in check');
+        $.ajax({
+            url: '/api/loggedin',
+            type: 'get'
+        }).done(function (data, a, b) {
+            app.currentUser = new User(data);
+            console.log('user session found', app.currentUser);
+        }).fail(function (data, a, b) {
+            if (app.currentUser) {
+                delete app.currentUser;
+            }
+        })
+    });
+
     app.on('start', function() {
         if (!Backbone.history) return;
 
         app.Radio = Marionette.Radio;
 
-        app.userWords = ['cat','blue','true','hedgehog','polar bear','motorcycle'];
-        app.currentUser = new User();
 
         require(['module/home', 'module/words'], function() {
             app.Header.show(new NavbarView());
@@ -72,3 +85,4 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     window.app = app;
     return app;
 });
+

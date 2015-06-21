@@ -15,6 +15,7 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
+        console.log("Serialize User", user.id);
         done(null, user.id);
     });
 
@@ -63,6 +64,7 @@ module.exports = function(passport) {
                     newUser.local.email    = email;
 		            newUser.local.password = newUser.generateHash(password);
 		            newUser.dateJoined = Date.now();
+                    newUser.wordLists = {'Favorites' : []};
 
 		            // save the user
 		            newUser.save(function(err) {

@@ -4,6 +4,10 @@ define(['marionette'], function(Marionette) {
     	
         template: '#userwordbasic',
 
+        initialize: function () {
+        	
+        }
+
     });
 
     return WordBasicView;

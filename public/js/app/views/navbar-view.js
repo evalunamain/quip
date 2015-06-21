@@ -10,8 +10,8 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
             this.authChannel.on('signIn', self.test);
         },
 
-        test: function (e) {
-            console.log('signed in');
+        hideForm: function (e) {
+            $('.nav-items').hide();
         },
 
         template: '#navbar',
@@ -35,7 +35,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 password: $('#password').val()
             }
 
-
+            app.currentUser = new User();
             app.currentUser.signIn(params);
             // debugger
             // $.ajax({

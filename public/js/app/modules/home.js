@@ -28,9 +28,13 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
         homeAction: function() {
             console.log('homeAction');
-            // var textView = new TextView({
-            //     text: 'home page'
-            // });
+
+            if (!app.currentUser) {
+                return;
+            } else {
+            
+            app.userWords = ['syzygy','truculent','risible', 'orotund'];
+            
             var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
             
             $.ajax({
@@ -52,11 +56,10 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
                     },
                    type: 'GET'
             });
+        }
     
                     
-        }    
-            
-        
+      },  
 
     });
 

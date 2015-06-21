@@ -3,10 +3,10 @@
     <a href="#!" class="brand-logo">Merismic</a>
    
     <form class="search-field center">
-        <div class="">
-          <input type="search" id="search" class="search-input">
-          <label for="search"><i class="mdi-action-search"></i></label>
-        </div>
+      <div class="">
+        <input type="search" id="search" class="search-input">
+        <label for="search"><i class="mdi-action-search"></i></label>
+      </div>
     </form>
     <div class="nav-items">
       <form action="" class="log-in-form nav-item">

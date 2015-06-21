@@ -1,7 +1,6 @@
 define(['backbone'], function(Backbone) {
 
     var User = Backbone.Model.extend({
-
 	    signIn: function(options){
 		    var model = this;
 
@@ -16,8 +15,8 @@ define(['backbone'], function(Backbone) {
           dataType: 'json',
           data: credentials
         }).done(function(data){
-		        model.set(data.user);
-		      	app.Radio.channel('auth').trigger('signIn');
+		       model.set(data.user);
+		      app.Radio.channel('auth').trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
         })
