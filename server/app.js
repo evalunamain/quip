@@ -150,7 +150,13 @@ app.get('/api/word/(:word)', function(req, res){
         .header("X-Mashape-Key", WORDSAPI_KEY)
         .header("Accept", "application/json")
         .end(function (result) {
-          res.json(result.body);
+        res.status(result.statusCode);
+        if (result.statusCode != 200) {
+          res.send('Could not find "'+ word +'."');
+        }
+        else {
+            res.json(result.body);
+        }
     });
 
 });

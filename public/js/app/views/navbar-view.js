@@ -5,9 +5,13 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
     	className: 'navbar-fixed',
 
         initialize: function() {
-            var authChannel = app.Radio.channel('auth');
+            this.authChannel = app.Radio.channel('auth');
             var self = this;
+<<<<<<< HEAD
             authChannel.on('signIn', self.hideForm);
+=======
+            this.authChannel.on('signIn', self.test);
+>>>>>>> master
         },
 
         hideForm: function (e) {
@@ -66,17 +70,21 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
             } else {
                 this.$search.removeClass('invalid');
-
-                var endpoint = '/api/word/' + word;
-                $.ajax({
-                    url: endpoint,
-                    type: 'GET',
-                    dataType: 'json',
-                }).done(function(data) {
-
-                }).fail(function(err, jqXHR) {
-                    debugger
-                });
+                app.navigate('/word/'+word);
+                // var apiEndpoint = 'http://localhost:3000/api/word/' + word;
+          
+                // $.ajax({
+                //     url: apiEndpoint,
+                //     type: 'GET',
+                //     dataType:'json',
+                //     })
+                // .done(function(data, textStatus, jqXHR) {
+                //       var wordModel = new Word(data);
+                //       var resultView = new WordExpandedView({model: wordModel});
+                //       app.content(resultView);  
+                // }).fail(function(data) {
+                //       console.log(data);                  
+                // });
             }
         }
 

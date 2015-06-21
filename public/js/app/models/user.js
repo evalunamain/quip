@@ -15,10 +15,8 @@ define(['backbone'], function(Backbone) {
           dataType: 'json',
           data: credentials
         }).done(function(data){
-	        model.set(data.user);
-	      	var userChannel = app.Radio.channel('auth');
-	      	userChannel.trigger('signIn');
-	      	// Backbone.history.navigate('home', {trigger:true});
+		       model.set(data.user);
+		      app.Radio.channel('auth').trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
         })
