@@ -8,7 +8,8 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
         startWithParent: false,
 
         routesList: {
-            'word/:word': 'defSearch'
+            'word/:word': 'defSearch',
+            'lists/:list': 'wordList'
         },
 
         initialize: function() {
@@ -39,6 +40,10 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
               console.log(data);                  
             });
            
+        },
+
+        wordList: function () {
+            
         }
     
     });

@@ -28,9 +28,13 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
         homeAction: function() {
             console.log('homeAction');
-            // var textView = new TextView({
-            //     text: 'home page'
-            // });
+
+            if (!app.currentUser) {
+                return;
+            } else {
+            
+            app.userWords = app.currentUser.get('wordLists')['Virgin Suicides'];
+            
             var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
             
             $.ajax({
@@ -52,9 +56,34 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
                     },
                    type: 'GET'
             });
+        }
     
                     
-        }    
+        },
+
+        getCollection: function (array, collection) {
+            var apiEndpoint = 'http://localhost:3000/api/words/' + JSON.stringify(app.userWords);
+            
+            $.ajax({
+                   url: apiEndpoint,
+                   data: {
+                      format: 'json'
+                   },
+                   error: function(err) {
+                        console.log(err);
+                    },
+                   success: function(data) {
+                        console.log(data)
+                        var words = data.map(function(word) {
+                            return new Word(word);
+                        });
+                        app.userWordsCollection = new WordsList(words);
+                        var wordsListView = new WordsListView({collection: app.userWordsCollection});
+                        app.content(wordsListView);                   
+                    },
+                   type: 'GET'
+            });
+        }  
             
         
 
@@ -63,3 +92,9 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
     return app.module('home', HomeModule);
 
 });
+
+
+
+
+
+

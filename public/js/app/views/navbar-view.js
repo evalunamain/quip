@@ -7,11 +7,11 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         initialize: function() {
             var authChannel = app.Radio.channel('auth');
             var self = this;
-            authChannel.on('signIn', self.test);
+            authChannel.on('signIn', self.hideForm);
         },
 
-        test: function (e) {
-            console.log('signed in');
+        hideForm: function (e) {
+            $('.nav-items').hide();
         },
 
         template: '#navbar',
@@ -35,7 +35,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 password: $('#password').val()
             }
 
-
+            app.currentUser = new User();
             app.currentUser.signIn(params);
             // debugger
             // $.ajax({

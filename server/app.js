@@ -31,21 +31,29 @@ mongoose.connect(process.env.DB_URL);
 
 require('./config/passport')(passport);
 
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET));
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
 app.use(bodyParser.json());
 
 app.use(session({ 
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: false,
 })); // session secret
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+var auth = function(req, res, next){ 
+    if (!req.isAuthenticated()) {
+        res.send(401);
+    } else {
+        next();   
+    } 
+}; 
 
 console.log('Enviroment: ' + config.enviroment);
 if (config.enviroment === 'dev') {
@@ -64,7 +72,6 @@ app.post('/api/signup', function (req, res, next) {
       return res.send({err: err, info: info, success : false, message : 'authentication failed' });
     }
 
-    console.log(user);
     req.login(user, function (err, user) {
         if(err){
             return next(err);
@@ -83,13 +90,31 @@ app.post('/api/login', function (req, res, next) {
     if (!user) {
       return res.status(401).send({err: err, info: info, success : false, message : 'authentication failed' });
     }
-    
-    var user = user.toObject();
-    delete user.local; //Don't send back credentials
-    return res.send({ success : true, message : 'authentication succeeded', user: user });
+
+    req.login(user, function (err) {
+        if(err){
+            return next(err);
+        }
+
+        user = user.toObject();
+        delete user.local; //Don't send back credentials
+        console.log('request user', req.user.email);
+        return res.send({ success : true, message : 'authentication succeeded', user: user });
+    }); 
+
   })(req, res, next);
 });
 
+app.get('/api/loggedin', function(req, res) { 
+    if (!req.isAuthenticated()) {
+        res.status(401).send({message: 'no user session'});
+    } else {
+        var user = req.user.toObject();
+        delete user.local;
+        res.send(user);
+    }
+     
+}); 
 
 app.get('/api/user/(:email)?', function(req, res){
     var email = req.params.email;
@@ -119,6 +144,7 @@ app.get('/api/words/(:words)', function(req, res){
 
 app.get('/api/word/(:word)', function(req, res){
     var word = req.params.word;
+    console.log('in word api', req.user, req.isAuthenticated());
 
     unirest.get("https://wordsapiv1.p.mashape.com/words/" + word)
         .header("X-Mashape-Key", WORDSAPI_KEY)
@@ -130,6 +156,8 @@ app.get('/api/word/(:word)', function(req, res){
 });
 
 app.get('/*', function(req, res){
+    console.log('in index');
+    console.log(req.user);
     indexGenerator.index(function(html) {
         res.send(html);
     });
