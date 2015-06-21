@@ -52,6 +52,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
             type: 'get'
         }).done(function (data, a, b) {
             app.currentUser = new User(data);
+            debugger
             console.log('user session found', app.currentUser);
         }).fail(function (data, a, b) {
             if (app.currentUser) {

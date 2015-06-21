@@ -161,6 +161,7 @@ app.get('/api/word/(:word)', function(req, res){
 
 });
 
+
 app.get('/*', function(req, res){
     console.log('in index');
     console.log(req.user);

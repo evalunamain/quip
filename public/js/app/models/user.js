@@ -1,6 +1,23 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'collection/list-collection', 'model/word'], function(Backbone, WordList, Word) {
 
     var User = Backbone.Model.extend({
+   		set: function (attributes, options) {
+   			if (attributes.wordLists) {
+   				this.wordLists = attributes.wordLists;
+   				this.setCollections();
+   				delete attributes.wordLists;
+   			}
+   			return Backbone.Model.prototype.set.call(this, attributes, options);
+   		},
+
+   		setCollections: function () {
+   			var self = this;
+   			Object.keys(self.wordLists).forEach(function(listName) {
+   				var collection = new WordList(self.wordLists[listName]);
+   				self.wordLists[listName] = collection;
+   			})
+   		},
+
 	    signIn: function(options){
 		    var model = this;
 
@@ -15,7 +32,9 @@ define(['backbone'], function(Backbone) {
           dataType: 'json',
           data: credentials
         }).done(function(data){
+        	console.log('data found');
 		       model.set(data.user);
+		       debugger
 		      app.Radio.channel('auth').trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
