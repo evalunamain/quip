@@ -7,11 +7,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         initialize: function() {
             this.authChannel = app.Radio.channel('auth');
             var self = this;
-<<<<<<< HEAD
-            authChannel.on('signIn', self.hideForm);
-=======
             this.authChannel.on('signIn', self.test);
->>>>>>> master
         },
 
         hideForm: function (e) {
