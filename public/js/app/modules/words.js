@@ -1,15 +1,16 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/search-result-view', 'view/error-view'], function(app, $, Marionette, RoutingModule, Word, SearchResultView, ErrorView) {
+define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/search-result-view', 'view/error-view', 'view/words-list-view'], function(app, $, Marionette, RoutingModule, Word, SearchResultView, ErrorView, WordsListView) {
 
     var WordsModule = RoutingModule.extend({
 
         startWithParent: false,
 
         routesList: {
-            'word/:word': 'defSearch',
-            'lists/:list': 'wordList'
+            'word/:word': 'lookup',
+            'lists/:list': 'wordLists',
+            'lists' : 'wordLists'
         },
 
         initialize: function() {
@@ -25,7 +26,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
             console.log('WordsModule stop');
         },
 
-        defSearch: function(word) {
+        lookup: function(word) {
           var apiEndpoint = 'http://localhost:3000/api/word/' + word;
           
           $.ajax({
@@ -43,8 +44,12 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
            
         },
 
-        wordList: function () {
-            
+
+        wordLists: function(wordList) {
+            var activeList = wordList ? app.curentUser.wordLists[wordList] : app.currentUser.wordLists['Favorites'];
+            debugger
+            var wordsListView = new WordsListView({collection: activeList});
+            app.content(wordsListView);
         }
     
     });
