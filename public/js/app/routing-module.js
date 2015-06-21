@@ -6,21 +6,20 @@ define(['app', 'marionette', 'backbone', 'jquery'], function(app, Marionette, Ba
     var RoutingModule = Marionette.Module.extend({
 
         initialize: function() {
-
             if (!this.routesList) return;
 
             this.router = new Backbone.Router();
-
             for (var route in this.routesList) {
                 if (!this.routesList.hasOwnProperty(route)) continue;
                 var routeName = this.routesList[route];
                 this.router.route(route, routeName, $.proxy(function() {
+                    console.log('executing route for :', routeName);
+                    debugger
                     app.startModule(this);
                     $.isFunction(this[routeName]) && this[routeName].apply(this, arguments);
 
                 }, this));
             }
-
         }
 
     });

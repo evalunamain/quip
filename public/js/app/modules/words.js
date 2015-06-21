@@ -3,17 +3,17 @@
  */
 define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/search-result-view', 'view/error-view', 'view/words-list-view'], function(app, $, Marionette, RoutingModule, Word, SearchResultView, ErrorView, WordsListView) {
 
-    var WordsModule = RoutingModule.extend({
+    var WordsModule = Backbone.Router.extend({
 
-        startWithParent: false,
+        // startWithParent: false,
 
-        routesList: {
-            'word/:word': 'lookup',
-            'lists/(:list)': 'wordLists'
+        routes: {
+            'lists': 'wordListTest',
+             'word/:word': 'lookup',
         },
 
         initialize: function() {
-            RoutingModule.prototype.initialize.apply(this, arguments);
+            // RoutingModule.prototype.initialize.apply(this, arguments);
             console.log('WordsModule initialize');
         },
 
@@ -26,6 +26,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
         },
 
         lookup: function(word) {
+            console.log('in word lookup');
           var apiEndpoint = 'http://localhost:3000/api/word/' + word;
           
           $.ajax({
@@ -43,10 +44,8 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
            
         },
 
-
-        wordLists: function(wordList) {
+        wordListTest: function(wordList) {
             console.log('in list');
-            debugger
             var activeList = wordList ? app.curentUser.wordLists[wordList] : app.currentUser.wordLists['Favorites'];
             var wordsListView = new WordsListView({collection: activeList});
             app.content(wordsListView);
@@ -54,6 +53,5 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
     
     });
 
-    return app.module('words', WordsModule);
-
+    return WordsModule;
 });

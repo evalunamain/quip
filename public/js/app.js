@@ -65,8 +65,9 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
         app.Radio = Marionette.Radio;
 
-
-        require(['module/home', 'module/words'], function() {
+        require(['module/home', 'module/words'], function(HomeRouter, WordRouter) {
+            var Homerouter = new HomeRouter();
+            var WordRouter = new WordRouter();
             app.Header.show(new NavbarView());
             Backbone.history.start({pushState: true});
         });

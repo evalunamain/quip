@@ -1,20 +1,21 @@
 /**
  * Created by 40in on 08.10.14.
  */
-define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'collection/words-list'], function(app, $, Marionette, RoutingModule, Word, WordsListView, WordsList) {
+define(['app', 'backbone', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'collection/words-list'], function(app, Backbone, $, Marionette, RoutingModule, Word, WordsListView, WordsList) {
 
-    var HomeModule = RoutingModule.extend({
+    var HomeModule = Marionette.AppRouter.extend({
 
-        startWithParent: false,
+        // startWithParent: false,
 
-        routesList: {
-            'word': 'homeAction',
-            'home': 'homeAction',
-            '': 'homeAction'
+        routes: {
+            // 'home': 'homeAction',
+            'test': 'test',
+            'test2': 'test2'
+            // '': 'homeAction'
         },
 
         initialize: function() {
-            RoutingModule.prototype.initialize.apply(this, arguments);
+            // RoutingModule.prototype.initialize.apply(this, arguments);
             console.log('HomeModule initialize');
         },
 
@@ -24,6 +25,14 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
         onStop: function() {
             console.log('HomeModule stop');
+        },
+
+        test: function () {
+            console.log('hi in test');
+        },
+
+        test2: function () {
+            console.log('hi in test2');
         },
 
         homeAction: function() {
@@ -63,6 +72,6 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
     });
 
-    return app.module('home', HomeModule);
+    return HomeModule;
 
 });
