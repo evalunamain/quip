@@ -5,7 +5,7 @@ define(['marionette'], function(Marionette) {
         template: '#userwordbasic',
 
         initialize: function () {
-        	
+        	console.log(this.model);
         }
 
     });

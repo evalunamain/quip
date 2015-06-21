@@ -6,22 +6,30 @@ define(['app', 'backbone'], function(app, Backbone) {
 	    	return 'api/word/' + this.get('word');
 	    },
 
-	    // parse: function (response) {
-	    // 	if (response.results) {
-	    // 		var results = response.results,
-	    // 			self = this,
-	    // 			definitions = [];
+	    initialize: function(data) {
+	    	console.log("Word initialize",data);
+	    	if (this.get('definitions') === undefined) {
+	    		this.fetch();
+	    	}
+	    },
 
-	    // 		results.forEach(function(result) {
-	    // 			var definition = {definition: result.definition};
-	    // 			definitions.push(definition);
-	    // 		});
+	    parse: function (response) {
+	    	console.log("Word parse",response);
+	    	if (response.results) {
+	    		var results = response.results,
+	    			self = this,
+	    			definitions = [];
 
-	    // 		response.definitions = definitions;
-	    // 	}
+	    		results.forEach(function(result) {
+	    			var definition = {definition: result.definition};
+	    			definitions.push(definition);
+	    		});
+
+	    		response.definitions = definitions;
+	    	}
 	
-	    // 	return response;
-	    // }
+	    	return response;
+	    }
     });
 
     return Word;

@@ -35,8 +35,8 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 password: $('#password').val()
             }
 
-            app.currentUser = new User();
-            app.currentUser.signIn(params);
+            var user = new User();
+            user.signIn(params);
             // debugger
             // $.ajax({
             //     url: '/api/login',

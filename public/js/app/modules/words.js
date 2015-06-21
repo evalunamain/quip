@@ -9,8 +9,7 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
         routesList: {
             'word/:word': 'lookup',
-            'lists/:list': 'wordLists',
-            'lists' : 'wordLists'
+            'lists/(:list)': 'wordLists'
         },
 
         initialize: function() {
@@ -46,8 +45,9 @@ define(['app', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'v
 
 
         wordLists: function(wordList) {
-            var activeList = wordList ? app.curentUser.wordLists[wordList] : app.currentUser.wordLists['Favorites'];
+            console.log('in list');
             debugger
+            var activeList = wordList ? app.curentUser.wordLists[wordList] : app.currentUser.wordLists['Favorites'];
             var wordsListView = new WordsListView({collection: activeList});
             app.content(wordsListView);
         }

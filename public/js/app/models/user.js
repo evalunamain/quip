@@ -2,6 +2,7 @@ define(['backbone', 'collection/list-collection', 'model/word'], function(Backbo
 
     var User = Backbone.Model.extend({
    		set: function (attributes, options) {
+        
    			if (attributes.wordLists) {
    				this.wordLists = attributes.wordLists;
    				this.setCollections();
@@ -35,7 +36,6 @@ define(['backbone', 'collection/list-collection', 'model/word'], function(Backbo
         }).done(function(data){
         	console.log('data found');
 		       model.set(data.user);
-		       debugger
 		      app.Radio.channel('auth').trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
