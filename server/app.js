@@ -127,7 +127,7 @@ app.get('/api/user/(:email)?', function(req, res){
 app.post('/api/addtolist', auth, function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';
    var wordList = req.body.wordList;
-
+   var inFavorites = req.body.inFavorites || false;
 
    var word = req.body.word;
 
@@ -148,18 +148,15 @@ app.post('/api/addtolist', auth, function (req, res, next) {
     // });
 
     User.findOne({ _id : req.user._id}, function (err, user){
-        userObj = user.toObject();
-        console.log(userObj);
+        var userObj = user.toObject();
+
         if (!req.user.wordLists[wordList]) {
-            userObj.wordLists[wordList] = {};
+            userObj.wordLists[wordList] = [];
         }
-        if (userObj.wordLists[wordList][word] === undefined) {
-             userObj.wordLists[wordList][word] = {updated_at: new Date()};
-        } else {
-            erMsg = '"' + word + '" is already in your ' + wordList + ' word list.';
-            res.send({error: erMsg});
-        }
-        if (userObj.wordLists.Favorites[word] === undefined) userObj.wordLists.Favorites[word] = {updated_at: new Date()};
+
+        userObj.wordLists[wordList].push({word: word, updated_at: new Date()});
+        if (!inFavorites) userObj.wordLists['Favorites'].push({word: word, updated_at: new Date()});
+
         User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
             if (err) res.send(err);
             res.send(200);
