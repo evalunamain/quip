@@ -16,8 +16,6 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
     var app = new Marionette.Application({
 
-        currentModule: '',
-
         regions: {
             Header: '#header',
             Content: '#content',
@@ -30,23 +28,13 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
             });
         },
 
-        startModule: function(module) {
-            if (this.currentModule && this.currentModule === module) {
-                return;
-            }
-            this.currentModule && this.currentModule.stop();
-
-            this.currentModule = module;
-            this.currentModule.start();
-        },
-
         content: function(view) {
             this.Content.show(view);
         }
     });
 
     app.on('before:start', function () {
-        console.log('before start log in check');
+
         $.ajax({
             url: '/api/loggedin',
             type: 'get'
@@ -62,15 +50,17 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
     app.on('start', function() {
         if (!Backbone.history) return;
-
+        
         app.Radio = Marionette.Radio;
 
-        require(['module/home', 'module/words'], function(HomeRouter, WordRouter) {
-            var Homerouter = new HomeRouter();
-            var WordRouter = new WordRouter();
-            app.Header.show(new NavbarView());
-            Backbone.history.start({pushState: true});
+        require(['router/home-router', 'router/words-router'], function(HomeRouter, WordsRouter) {
+            var HomeRouter = new HomeRouter();
+            var WordsRouter = new WordsRouter();
         });
+       
+        app.Header.show(new NavbarView());
+        Backbone.history.start({pushState: true});
+
     });
 
     $(document).click(function(event) {

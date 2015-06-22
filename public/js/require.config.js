@@ -10,7 +10,8 @@ requirejs.config({
         'jquery': 'bower_components/jquery/dist/jquery',
         'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',        
         'app': 'js/app',
-        'module': 'js/app/modules',
+        'router': 'js/app/routers',
+        'controller' : 'js/app/controllers',
         'model': 'js/app/models',
         'view': 'js/app/views',
         'collection': 'js/app/collections'

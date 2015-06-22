@@ -36,6 +36,7 @@ define(['backbone', 'collection/list-collection', 'model/word'], function(Backbo
         }).done(function(data){
         	console.log('data found');
 		       model.set(data.user);
+           app.currentUser = model;
 		      app.Radio.channel('auth').trigger('signIn');
         }).fail(function(err, jqXHR) {
            debugger
