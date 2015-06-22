@@ -66,7 +66,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
             } else {
                 this.$search.removeClass('invalid');
-                app.navigate('/word/'+word);
+                app.navigate('word/'+word);
                 // var apiEndpoint = 'http://localhost:3000/api/word/' + word;
           
                 // $.ajax({

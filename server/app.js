@@ -98,7 +98,6 @@ app.post('/api/login', function (req, res, next) {
 
         user = user.toObject();
         delete user.local; //Don't send back credentials
-        console.log('request user', req.user.email);
         return res.send({ success : true, message : 'authentication succeeded', user: user });
     }); 
 
@@ -135,17 +134,7 @@ app.post('/api/addtolist', auth, function (req, res, next) {
        update = { $set : {wordList:word}},
        options = {upsert: false};
 
-    // User.update(conditions, update, options, function(err, docs){
-    //     console.log(docs)
-    //     if (err) res.status(404).send(err);
-    //     if(docs > 0) {
-    //         res.send({successMsg: word + " succesffully added to " + wordList + " wordlist."});
-    //     }
-    //     else {
-    //         res.status(404).send("No documents updated.")
-    //     }
-        
-    // });
+  
 
     User.findOne({ _id : req.user._id}, function (err, user){
         var userObj = user.toObject();
