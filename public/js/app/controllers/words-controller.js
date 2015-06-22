@@ -23,7 +23,6 @@ define(['app', 'jquery', 'marionette','model/word', 'view/search-result-view', '
 
     showList: function(wordList) {
       var listCollection = this.getListToShow(wordList);
-      // debugger
       console.log(listCollection);
       var wordsListView = new WordsListView({collection: listCollection});
       app.content(wordsListView);
