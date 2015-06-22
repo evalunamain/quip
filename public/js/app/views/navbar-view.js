@@ -34,6 +34,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 email: $('#email').val(),
                 password: $('#password').val()
             }
+            console.log('loggin in user');
 
             var user = new User();
             user.signIn(params);

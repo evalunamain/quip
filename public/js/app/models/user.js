@@ -1,23 +1,30 @@
-define(['backbone', 'collection/list-collection', 'model/word'], function(Backbone, WordList, Word) {
+define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Backbone, WordList, Word) {
 
     var User = Backbone.Model.extend({
+
+      idAttribute: '_id',
+
    		set: function (attributes, options) {
+        // if (app.currentUser && !app.currentUser.words) app.currentUser.words = new WordList();
         
    			if (attributes.wordLists) {
    				this.wordLists = attributes.wordLists;
-   				this.setCollections();
+   				this.setWordLists();
    				delete attributes.wordLists;
    			}
    			return Backbone.Model.prototype.set.call(this, attributes, options);
    		},
 
-   		setCollections: function () {
+   		setWordLists: function () {
+
    			var self = this;
    			Object.keys(self.wordLists).forEach(function(listName) {
-   				var collection = new WordList(self.wordLists[listName]);
-   				collection.listName = listName;
-   				self.wordLists[listName] = collection;
-   			})
+          if (listName != 'Favorites') {
+     				var collection = new WordList(self.wordLists[listName]);
+     				collection.listName = listName;
+     				self.wordLists[listName] = collection;
+          }
+   			});
    		},
 
 	    signIn: function(options){
@@ -34,10 +41,12 @@ define(['backbone', 'collection/list-collection', 'model/word'], function(Backbo
           dataType: 'json',
           data: credentials
         }).done(function(data){
-        	console.log('data found');
-		       model.set(data.user);
-           app.currentUser = model;
-		      app.Radio.channel('auth').trigger('signIn');
+            app.currentUser = model;
+            app.currentUser.words = new WordList();
+        
+  		      app.currentUser.set(data.user);
+  		      app.Radio.channel('auth').trigger('signIn');
+            app.navigate('lists');
         }).fail(function(err, jqXHR) {
            debugger
         })

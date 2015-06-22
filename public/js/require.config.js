@@ -11,6 +11,7 @@ requirejs.config({
         'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',        
         'app': 'js/app',
         'router': 'js/app/routers',
+        'module': 'js/app/modules',
         'controller' : 'js/app/controllers',
         'model': 'js/app/models',
         'view': 'js/app/views',
@@ -50,6 +51,7 @@ requirejs.config({
     }
 });
 
-require(['app'], function(app) {
+require(['app', 'underscore', 'module/utils'], function(app, _, appUtils) {
+    _.extend(app,appUtils);
     app.start();
 });

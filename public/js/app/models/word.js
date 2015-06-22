@@ -7,12 +7,12 @@ define(['app', 'backbone'], function(app, Backbone) {
 	    },
 
 	    defaults: {
-	    	results: []
+	    	definitions: []
 	    },
 
 	    initialize: function(data) {
 	    	console.log("Word initialize",data);
-	    	if (this.get('definitions') === undefined) {
+	    	if (this.get('definitions').length == 0) {
 	    		this.fetch();
 	    	}
 	    },

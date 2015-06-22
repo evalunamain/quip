@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', 'collection/words-list', 'view/navbar-view'], function(Marionette, Backbone, $, Word, User, WordsList, NavbarView) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', 'collection/wordlist-collection', 'view/navbar-view'], function(Marionette, Backbone, $, Word, User, WordsList, NavbarView) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
@@ -35,11 +35,16 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
     app.on('before:start', function () {
 
+
+
         $.ajax({
             url: '/api/loggedin',
             type: 'get'
-        }).done(function (data, a, b) {
-            app.currentUser = new User(data);
+        }).done(function (data) {
+            app.currentUser = new User();
+            app.currentUser.words = new WordList();
+        
+            app.currentUser.set(data);
             console.log('user session found', app.currentUser);
         }).fail(function (data, a, b) {
             if (app.currentUser) {

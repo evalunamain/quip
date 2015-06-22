@@ -4,8 +4,7 @@ define(['marionette'], function(Marionette) {
 
     	className: 'row',
 
-        template: '#error',
-
+      template: '#error',
 
     });
 

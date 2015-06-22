@@ -106,7 +106,7 @@ app.post('/api/login', function (req, res, next) {
 
 app.get('/api/loggedin', function(req, res) { 
     if (!req.isAuthenticated()) {
-        res.status(401).send({message: 'no user session'});
+        res.status(401).send({message: "You're not logged in!"});
     } else {
         var user = req.user.toObject();
         delete user.local;
@@ -114,14 +114,6 @@ app.get('/api/loggedin', function(req, res) {
     }
      
 }); 
-
-app.get('/api/user/(:email)?', function(req, res){
-    var email = req.params.email;
-    User.findOne({ email: email }, function(err, user) {
-      if (err) return console.error(err);
-      res.json(user);
-    });
-});
 
 app.post('/api/addtolist', auth, function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';

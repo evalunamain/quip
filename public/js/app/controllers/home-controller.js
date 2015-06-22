@@ -1,4 +1,4 @@
-define(['app', 'backbone', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'collection/words-list'], function(app, Backbone, $, Marionette, RoutingModule, Word, WordsListView, WordsList) {
+define(['app', 'backbone', 'jquery', 'marionette', 'js/app/routing-module', 'model/word', 'view/words-list-view', 'collection/wordlist-collection'], function(app, Backbone, $, Marionette, RoutingModule, Word, WordsListView, WordsList) {
 
 	var HomeController = {
 

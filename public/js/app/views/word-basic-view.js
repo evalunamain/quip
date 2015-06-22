@@ -5,10 +5,8 @@ define(['marionette'], function(Marionette) {
         template: '#userwordbasic',
 
         initialize: function () {
-        	console.log(this.model);
-        	this.listenToOnce(this.model, 'sync', this.render);
+        	this.listenTo(this.model, 'sync', this.render);
         },
-
     });
 
     return WordBasicView;
