@@ -6,7 +6,8 @@ define(['marionette'], function(Marionette) {
 
         initialize: function () {
         	console.log(this.model);
-        }
+        	this.listenToOnce(this.model, 'sync', this.render);
+        },
 
     });
 

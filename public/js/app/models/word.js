@@ -6,6 +6,10 @@ define(['app', 'backbone'], function(app, Backbone) {
 	    	return 'api/word/' + this.get('word');
 	    },
 
+	    defaults: {
+	    	results: []
+	    },
+
 	    initialize: function(data) {
 	    	console.log("Word initialize",data);
 	    	if (this.get('definitions') === undefined) {
