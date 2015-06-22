@@ -5,9 +5,9 @@ define(['marionette', 'controller/words-controller'], function(Marionette, Words
         controller: WordsController,
 
         appRoutes: {
-            'lists/:list': 'showList',
-            'lists' : 'showList',
-            'word/:word': 'lookup'
+            'lists/:list(/)': 'showList',
+            'lists(/)' : 'showList',
+            'word/:word(/)': 'lookup'
         }
     
     });

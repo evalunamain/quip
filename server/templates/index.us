@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <base href="/">
     <title><%= title %></title>
     <% _.each(cssList, function(fileName) { %>
     <link rel="stylesheet" href="css/<%= fileName %>"/>

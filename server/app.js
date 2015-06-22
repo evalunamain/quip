@@ -20,7 +20,7 @@ var express = require('express'),
 
 var WORDSAPI_KEY = process.env.WORDSAPI_KEY;
 var config = grunt.file.readJSON('config.json');
-
+console.log(path.basename);
 //Database
 var User = require('./models/user');
 var db = mongoose.connection;

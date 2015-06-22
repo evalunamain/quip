@@ -6,7 +6,7 @@ define(['marionette', 'controller/home-controller'], function(Marionette, HomeCo
         controller: HomeController,
 
         appRoutes: {
-            'home': 'homeAction',
+            'home(/)': 'homeAction',
              '': 'homeAction'
         }
 
