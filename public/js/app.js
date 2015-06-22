@@ -51,7 +51,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     app.on('start', function() {
         if (!Backbone.history) return;
         app.Radio = Marionette.Radio;
-        
+
         require(['router/home-router', 'router/words-router'], function(HomeRouter, WordsRouter) {
             var HomeRouter = new HomeRouter();
             var WordsRouter = new WordsRouter();
