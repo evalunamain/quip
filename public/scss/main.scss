@@ -122,7 +122,17 @@ input.search-input {
 	}
 }
 
+.words-link {
+	position: relative;
 
+	&:before {
+		content: attr(data-wordcount);
+		font-size: .75rem;
+		font-weight: 200;
+		position: absolute;
+		left: -1rem;
+	}
+}
 
 
 .word-expanded {

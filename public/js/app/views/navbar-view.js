@@ -6,8 +6,8 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
         initialize: function() {
             this.authChannel = app.Radio.channel('auth');
-            var self = this;
-            this.authChannel.on('signIn', self.test);
+            this.authChannel.on('logIn', this.render);
+            this.authChannel.on('logOut', this.render);
         },
 
         hideForm: function (e) {
@@ -17,10 +17,8 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         template: '#navbar',
 
         events: {
-            'click a': function(event) {
-                event.preventDefault();
-            },
-            "submit .log-in-form": "logInUser",
+            'click #js-logout': "logOut",
+            "submit .log-in-form": "logIn",
             "submit .search-field": "searchWord"
         },
 
@@ -28,28 +26,21 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
             this.$search = this.$('#search');
         },
 
-        logInUser: function (e) {
+        logIn: function (e) {
             e.preventDefault();
             var params = {
                 email: $('#email').val(),
                 password: $('#password').val()
             }
-            console.log('loggin in user');
 
             var user = new User();
-            user.signIn(params);
-            // debugger
-            // $.ajax({
-            //     url: '/api/login',
-            //     type: 'post',
-            //     dataType: 'json',
-            //     data: params
-            // }).done(function(data) {
-            //     var user = new User(data.user);
-            //     console.log(user);
-            // }).fail(function(err, jqXHR) {
-            //     debugger
-            // })
+            user.logIn(params);
+        },
+
+        logOut: function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            app.currentUser.logOut();
         },
 
         searchWord: function(e) {

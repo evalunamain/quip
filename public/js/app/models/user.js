@@ -27,7 +27,7 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
    			});
    		},
 
-	    signIn: function(options){
+	    logIn: function(options){
 		    var model = this;
 
 		    var credentials = {
@@ -45,26 +45,29 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
             app.currentUser.words = new WordList();
         
   		      app.currentUser.set(data.user);
-  		      app.Radio.channel('auth').trigger('signIn');
+  		      app.Radio.channel('auth').trigger('logIn');
             app.navigate('lists');
         }).fail(function(err, jqXHR) {
            debugger
         })
 		  },
 
-		  // signOut: function(options){
-		  //   var model = this;
+		  logOut: function(options){
+		    var model = this;
 
-		  //   $.ajax({
-		  //     url: ,
-		  //     type: "DELETE",
-		  //     dataType: "json",
-		  //     success: function(data){
-		  //       model.clear();
-		  //       options.success && options.success();
-		  //     }
-		  //   });
-		  // }
+		    $.ajax({
+		      url: '/api/logout',
+		      type: "GET",
+          }).done(function(data) {
+            model.clear();
+            delete app.currentUser;
+            app.Radio.channel('auth').trigger('logOut');
+            app.navigate('');
+          }).fail(function(data) {
+            var erMsg = "Logout failed. Please try again.";
+            app.content(new ErrorView({model: new Backbone.Model({message: erMsg})}));
+          });
+		    }
 	 
     });
 

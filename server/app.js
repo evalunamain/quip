@@ -115,6 +115,19 @@ app.get('/api/loggedin', function(req, res) {
      
 }); 
 
+app.get('/api/logout', function(req, res) { 
+    console.log('in logout');
+    if (!req.isAuthenticated()) {
+        res.status(401).send({message: "You're not logged in!"});
+    } else {
+        req.logOut();
+        req.session.destroy();
+        console.log('logout worked');
+        res.send(200);
+    }
+     
+}); 
+
 app.post('/api/addtolist', auth, function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';
    var wordList = req.body.wordList;
@@ -173,7 +186,7 @@ app.get('/api/word/(:word)', function(req, res){
         .header("Accept", "application/json")
         .end(function (result) {
         res.status(result.statusCode);
-        if (result.statusCode != 200) {
+        if (result.statusCode != 200 || !result.body.results) {
           res.send('Could not find "'+ word +'."');
         }
         else {

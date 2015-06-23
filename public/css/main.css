@@ -10313,6 +10313,17 @@ input.search-input + label.active i {
   color: #648391;
 }
 
+.words-link {
+  position: relative;
+}
+.words-link:before {
+  content: attr(data-wordcount);
+  font-size: .75rem;
+  font-weight: 200;
+  position: absolute;
+  left: -1rem;
+}
+
 .word-expanded {
   background-color: white;
 }
