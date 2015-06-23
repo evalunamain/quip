@@ -41,7 +41,7 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
         }).done(function(data){
             app.currentUser = model;
             app.currentUser.words = new WordList();
-        
+            app.currentUser.words.listName = "All words"
   		      app.currentUser.set(data.user);
   		      app.Radio.channel('auth').trigger('logIn');
             app.navigate('lists');
