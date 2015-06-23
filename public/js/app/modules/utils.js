@@ -1,4 +1,4 @@
-define(['underscore'], function (_) {
+define(['underscore', 'backbone', 'view/error-view'], function (_, Backbone, ErrorView) {
 	var utils = {
 			// loggedIn : function(options) {
 			// 	$.ajax({
@@ -24,6 +24,10 @@ define(['underscore'], function (_) {
 		 //  	return loggedIn;
 
 		 //  }
+
+		 makeErrView: function(erMsg) {
+		 		return new ErrorView({model: new Backbone.Model({message: erMsg})})
+		 }
 
 		 
 	}

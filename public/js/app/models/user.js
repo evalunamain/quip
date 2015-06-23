@@ -19,11 +19,9 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
 
    			var self = this;
    			Object.keys(self.wordLists).forEach(function(listName) {
-          if (listName != 'Favorites') {
      				var collection = new WordList(self.wordLists[listName]);
      				collection.listName = listName;
      				self.wordLists[listName] = collection;
-          }
    			});
    		},
 

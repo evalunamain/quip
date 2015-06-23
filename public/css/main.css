@@ -10292,6 +10292,20 @@ input.search-input + label.active i {
   border-bottom: none;
 }
 
+.wordlist-container {
+  margin: 0.5rem 0 1rem 0;
+}
+
+.wordlist-header {
+  margin-left: 4%;
+  font-size: .9rem;
+  color: #a1a1a1;
+}
+
+.wordlist.collapsible {
+  margin-top: .6rem;
+}
+
 .wordListed {
   overflow: hidden;
   border-bottom: 1px solid lightgray;

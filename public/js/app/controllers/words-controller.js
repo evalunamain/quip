@@ -14,16 +14,14 @@ define(['app', 'jquery', 'marionette','model/word', 'view/search-result-view', '
           var resultView = new SearchResultView({model: wordModel});
           app.content(resultView);  
         }).fail(function(jqXHR) {
-          var errView = new ErrorView({model: new Backbone.Model({message: jqXHR.responseText})}); 
-          app.content(errView);               
+          app.content(app.makeErrView(jqXHR.responseText));               
         });
        
     },
 
     showList: function(wordList) {
       if (!app.currentUser) {
-        var erMsg = "You need to be logged in to view your lists!"
-        return app.content(new ErrorView({model: new Backbone.Model({message: erMsg})}));
+        return app.content(app.makeErrView("You need to be logged in to view your lists!"));
       }
       var listCollection = this.getListToShow(wordList);
       console.log(listCollection);
@@ -35,7 +33,7 @@ define(['app', 'jquery', 'marionette','model/word', 'view/search-result-view', '
     	if (!wordList) return app.currentUser.words;
       var listNameNormalized = wordList.replace(/-/g, ' ');
 			var activeList = app.currentUser.wordLists[wordList] || 
-							app.currentUser.wordLists[listNameNormalized];   
+							         app.currentUser.wordLists[listNameNormalized];   
 			return activeList;
     }
 	  // lookup : function () {

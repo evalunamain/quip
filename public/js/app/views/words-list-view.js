@@ -3,13 +3,19 @@
  */
 define(['marionette', 'view/words-list-word-view'], function(Marionette, WordsListWordView) {
 
-    var WordsListView = Marionette.CollectionView.extend({
+    var WordsListView = Marionette.CompositeView.extend({
 
-    	className: 'collapsible popout',
+    	className: 'wordlist-container row',
 
-    	tagName: 'ul',	
+    	template: '#wordlistview',
 
-        childView: WordsListWordView
+      childView: WordsListWordView,
+
+      childViewContainer: 'ul',
+
+      templateHelpers: function() {
+    		return { listName: this.collection.listName};
+  		}
 
     });
 

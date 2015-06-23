@@ -1,0 +1,4 @@
+<div class="s12 col">
+	<div class="wordlist-header"><%= listName %></div>
+	<ul class="collapsible popout wordlist"></ul>
+</div>
