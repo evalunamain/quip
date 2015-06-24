@@ -24,8 +24,8 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         },
 
         onRender: function () {
-            app.$search = this.$('#search');
-            app.$sidenav = this.$('.side-nav-menu');
+            this.$search = this.$('#search');
+            this.$sidenav = this.$('.side-nav-menu');
         },
 
         logIn: function (e) {
@@ -65,7 +65,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         },
 
         toggleMenu: function(e) {
-            app.$sidenav.toggleClass('side-nav-open');
+            this.$sidenav.toggleClass('side-nav-open');
             app.$content.toggleClass('side-nav-open');
         }
     });

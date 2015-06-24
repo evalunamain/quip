@@ -8,7 +8,13 @@
 				<% }) %>
 			</ul>
 			<div class="card-action">
-					<a href="" class="card-action-link">Save to Word List</a>
+					<a href="#" class="card-action-link dropdown-button" data-activates='dropdown1'>Save to Word List</a>
+					<ul id='dropdown1' class='dropdown-content'>
+				    <li><a href="#!">one</a></li>
+				    <li><a href="#!">two</a></li>
+				    <li class="divider"></li>
+				    <li><a href="#!">three</a></li>
+  				</ul>
 			</div>
 		</div>	
 	</div>

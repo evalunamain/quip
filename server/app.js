@@ -20,7 +20,7 @@ var express = require('express'),
 
 var WORDSAPI_KEY = process.env.WORDSAPI_KEY;
 var config = grunt.file.readJSON('config.json');
-console.log(path.basename);
+
 //Database
 var User = require('./models/user');
 var db = mongoose.connection;
@@ -116,17 +116,34 @@ app.get('/api/loggedin', function(req, res) {
 }); 
 
 app.get('/api/logout', function(req, res) { 
-    console.log('in logout');
     if (!req.isAuthenticated()) {
         res.status(401).send({message: "You're not logged in!"});
     } else {
         req.logOut();
         req.session.destroy();
-        console.log('logout worked');
         res.send(200);
     }
      
 }); 
+
+app.post('/api/addlist', auth, function(req,res,next) {
+    var listName = req.body.listName;
+    User.findOne({ _id : req.user._id}, function (err, user){
+        var userObj = user.toObject();
+
+        if (!req.user.wordLists[listName]) {
+            userObj.wordLists[listName] = [];
+            User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
+                if (err) res.send(err);
+                res.send(200);
+            });
+        }
+        else {
+            res.send({message: "A list with that name already exists!"})
+        }
+    });
+
+});
 
 app.post('/api/addtolist', auth, function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';
@@ -179,7 +196,6 @@ app.get('/api/words/(:words)', function(req, res){
 
 app.get('/api/word/(:word)', function(req, res){
     var word = req.params.word;
-    console.log('in word api', req.user, req.isAuthenticated());
 
     unirest.get("https://wordsapiv1.p.mashape.com/words/" + word)
         .header("X-Mashape-Key", WORDSAPI_KEY)
@@ -198,8 +214,6 @@ app.get('/api/word/(:word)', function(req, res){
 
 
 app.get('/*', function(req, res){
-    console.log('in index');
-    console.log(req.user);
     indexGenerator.index(function(html) {
         res.send(html);
     });

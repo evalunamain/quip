@@ -42,22 +42,23 @@
   <nav class="side-nav-menu">
      <div class="menu-items-container">
         <ul class="menu-block">
-          <li><i class="mdi-action-search"></i><span>Search</span></li>
-          <li><i class="mdi-action-spellcheck"></i><span>Vocab Builder</span></li>
-          <li><i class="mdi-action-stars"></i><span>Saved Words</span></li>
+          <li><i class="material-icons">search</i><span>Search</span></li>
+          <li><i class="material-icons">spellcheck</i><span>Vocab Builder</span></li>
+          <li><i class="material-icons">stars</i><span>Saved Words</span></li>
         </ul>
         <% if (app.currentUser && Object.keys(app.currentUser.wordLists).length > 0) { %>
           <hr>
           <ul class="menu-block">
             <% _.forEach(app.currentUser.wordLists, function(wordList) { %>
-              <li><i class="mdi-action-grade"></i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a></li>
+              <li><i class="material-icons">grade</i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a></li>
             <% }) %>
+            <li><i class="material-icons">library_add</i><input class="nav-menu-new-list" placeholder="Create new list"></input>
           </ul>
         <% } %>
         <hr>
         <ul class="menu-block">
-          <li><i class="mdi-action-settings"></i><span>Settings</span></li>
-          <li><i class="mdi-action-settings_power"></i><span>Log Out</span></li>
+          <li><i class="material-icons">settings</i><span>Settings</span></li>
+          <li><i class="material-icons">settings_power</i><span>Log Out</span></li>
         </ul>
      </div>
   </nav>

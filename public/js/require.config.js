@@ -8,7 +8,8 @@ requirejs.config({
         'marionette.radio' : 'js/lib/marionette.radio',
         'underscore': 'bower_components/underscore/underscore',
         'jquery': 'bower_components/jquery/dist/jquery',
-        'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',        
+        'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',
+        'dropdown' : 'bower_components/materialize/js/dropdown',        
         'app': 'js/app',
         'router': 'js/app/routers',
         'module': 'js/app/modules',
@@ -34,6 +35,9 @@ requirejs.config({
             //Once loaded, use the global 'Backbone' as the
             //module value.
             exports: 'Backbone'
+        },
+        'dropdown' : {
+            deps:['jquery']
         },
         'marionette': {
             deps: ['backbone'],

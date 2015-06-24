@@ -1,10 +1,15 @@
-define(['marionette'], function(Marionette) {
+define(['jquery','marionette','dropdown'], function($,Marionette) {
 
     var SearchResultView = Marionette.ItemView.extend({
 
     	className: 'row',
 
-        template: '#searchresult',
+      template: '#searchresult',
+
+      onRender: function() {
+      	console.log($.dropdown);
+      	$('.card-action-link').dropdown();
+      }
 
 
     });
