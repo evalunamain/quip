@@ -1,33 +1,64 @@
-<nav>
-  <div class="nav-wrapper">
-    <span class="menu-button"><i class="material-icons">menu</i></span>
-    <a href=" " class="brand-logo">Merismic</a>
-    <form class="search-field center">
-      <div class="">
-        <input type="search" id="search" class="search-input">
-        <label for="search"><i class="mdi-action-search"></i></label>
-      </div>
-    </form>
-   <!-- <div class="nav-items">
-      <% if (app.currentUser) { %>
-        <a href="lists" class="words-link" data-wordcount="(<%= app.currentUser.words.models.length %>)">Words</a>
-        <a class="waves-effect waves-light btn" id="js-logout">Logout</a>
-  </button>
-      <% } else { %>
-        <form action="" class="log-in-form nav-item">
-          <div class="login-section">
-            <label for="email">Email</label>
-            <input type="text" id="email">
-          </div>
-          <div class="login-section">
-            <label for="password">Password</label>
-            <input type="password" id="password">
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-             <i class="mdi-content-send right"></i>
-          </button>
-        </form>
-      <%} %>
-    </div> !-->
-  </div>
-</nav>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="left-items">
+        <% if (app.currentUser) { %>
+          <span class="menu-button"><i class="material-icons">menu</i></span>
+        <% } %>
+        <a href=" " class="brand-logo">Merismic</a>
+      </div>  
+      <form class="search-field">
+        <div class="search-input-container">
+          <label for="search" class="search-label"><i class="mdi-action-search"></i></label>
+          <input type="search" id="search" class="search-input">
+        </div>
+      </form>
+
+     <div class="nav-items">
+        <% if (app.currentUser) { %>
+          <a href="lists" class="words-link" data-wordcount="(<%= app.currentUser.words.models.length %>)">Words</a>
+          <a class="waves-effect waves-light btn" id="js-logout">Logout</a>
+    </button>
+        <% } else { %>
+          <form action="" class="log-in-form nav-item">
+            <div class="login-section">
+              <label for="email">Email</label>
+              <input type="text" id="email">
+            </div>
+            <div class="login-section">
+              <label for="password">Password</label>
+              <input type="password" id="password">
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+               <i class="mdi-content-send right"></i>
+            </button>
+          </form>
+        <% } %>
+      </div> 
+    </div>
+  </nav>
+</div>
+<% if (app.currentUser) { %>
+  <nav class="side-nav-menu">
+     <div class="menu-items-container">
+        <ul class="menu-block">
+          <li><i class="mdi-action-search"></i><span>Search</span></li>
+          <li><i class="mdi-action-spellcheck"></i><span>Vocab Builder</span></li>
+          <li><i class="mdi-action-stars"></i><span>Saved Words</span></li>
+        </ul>
+        <% if (app.currentUser && app.currentUser.wordLists.length > 0) { %>
+          <hr>
+          <ul class="menu-block">
+            <% app.currentUser.wordLists.forEach(function(wordList) { %>
+              <li><i class="mdi-action-grade"></i><span><%= wordList.listName %></span></li>
+            <% }) %>
+          </ul>
+        <% } %>
+        <hr>
+        <ul class="menu-block">
+          <li><i class="mdi-action-settings"></i><span>Settings</span></li>
+          <li><i class="mdi-action-power_settings_new"></i><span>Log Out</span></li>
+        </ul>
+     </div>
+  </nav>
+<% } %>

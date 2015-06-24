@@ -2,7 +2,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
-    	className: 'navbar-fixed',
+    	tagName: 'nav',
 
         initialize: function() {
             this.authChannel = app.Radio.channel('auth');
@@ -75,7 +75,6 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
                 // });
             }
         }
-
     });
 
     return NavbarView;
