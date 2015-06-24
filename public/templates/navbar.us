@@ -46,18 +46,18 @@
           <li><i class="mdi-action-spellcheck"></i><span>Vocab Builder</span></li>
           <li><i class="mdi-action-stars"></i><span>Saved Words</span></li>
         </ul>
-        <% if (app.currentUser && app.currentUser.wordLists.length > 0) { %>
+        <% if (app.currentUser && Object.keys(app.currentUser.wordLists).length > 0) { %>
           <hr>
           <ul class="menu-block">
-            <% app.currentUser.wordLists.forEach(function(wordList) { %>
-              <li><i class="mdi-action-grade"></i><span><%= wordList.listName %></span></li>
+            <% _.forEach(app.currentUser.wordLists, function(wordList) { %>
+              <li><i class="mdi-action-grade"></i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a></li>
             <% }) %>
           </ul>
         <% } %>
         <hr>
         <ul class="menu-block">
           <li><i class="mdi-action-settings"></i><span>Settings</span></li>
-          <li><i class="mdi-action-power_settings_new"></i><span>Log Out</span></li>
+          <li><i class="mdi-action-settings_power"></i><span>Log Out</span></li>
         </ul>
      </div>
   </nav>

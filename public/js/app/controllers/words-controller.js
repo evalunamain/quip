@@ -19,22 +19,26 @@ define(['app', 'jquery', 'marionette','model/word', 'view/search-result-view', '
        
     },
 
-    showList: function(wordList) {
+    showList: function(listName) {
       if (!app.currentUser) {
         return app.content(app.makeErrView("You need to be logged in to view your lists!"));
       }
-      var listCollection = this.getListToShow(wordList);
-      console.log(listCollection);
+
+      var listCollection = this.getListToShow(listName);
+      if (!listCollection) {
+        return app.content(app.makeErrView("We couldn't find that word list."));               
+      }
+
       var wordsListView = new WordsListView({collection: listCollection});
       app.content(wordsListView);
     },
 
-    getListToShow: function(wordList) {
-    	if (!wordList) return app.currentUser.words;
-      var listNameNormalized = wordList.replace(/-/g, ' ');
-			var activeList = app.currentUser.wordLists[wordList] || 
-							         app.currentUser.wordLists[listNameNormalized];   
-			return activeList;
+    getListToShow: function(listName) {
+    	if (!listName) return app.currentUser.words;
+      var listHrefNormalized = app.normalizeForSearch(listName).replace(/\s+/g, '-');
+			return app.currentUser.wordLists[listHrefNormalized] || undefined;
+
+			
     }
 	  // lookup : function () {
 	  // 	console.log('looking up');

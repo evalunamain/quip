@@ -10,6 +10,8 @@
 	 transform: translateX(-50%);
 }
 
+$primary-grey: darken(#FAFAFA, 35%);
+
 body {
 	background-color: #F2F2F2;
 }
@@ -20,8 +22,10 @@ body {
 	clear: both;
 }
 
-.content-wrapper {
-	overflow-y: scroll;
+#content {
+	&.side-nav-open {
+		@include translate(70px,0);
+	}
 }
 
 .nav-items {
@@ -38,6 +42,7 @@ body {
 	width: 72px;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
 
 	i {
 		color: $primary-color-light;
@@ -155,7 +160,7 @@ nav .nav-wrapper {
 }
 .side-nav-menu {
 	background: none;
-	color: darken(#FAFAFA, 35%);
+	color: $primary-grey;
 	font-weight:600;
 	width: 215px;
 	height: auto;
@@ -166,11 +171,12 @@ nav .nav-wrapper {
 	position: fixed;
 	box-shadow: none;
 	@include translate3d(-100%,0,0);
+	@include transition(transform 0.15s ease-in-out);
 
 	&.side-nav-open {
 		visibility: visible;
 		@include translate3d(0,0,0);
-		@include transition(transform 0.5s ease-in-out);
+		@include transition(transform 0.15s ease-in-out);
 	}
 
 	hr {
@@ -183,9 +189,13 @@ nav .nav-wrapper {
   padding-left: 16px;
   cursor: pointer;
 
-  > i {
+  i {
   	font-size: 1.5rem;
   	float: left;
+	}
+
+	a {
+		color: $primary-grey;
 	}
   
 }
@@ -212,7 +222,7 @@ nav .nav-wrapper {
 .wordlist-header {
 	margin-left: 4%;
 	font-size: .9rem;
-	color: darken(#FAFAFA, 35%);
+	color: $primary-grey;
 }
 
 .wordlist {

@@ -30,6 +30,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
 
         content: function(view) {
             this.Content.show(view);
+            app.$content = $('#content');
         }
     });
 

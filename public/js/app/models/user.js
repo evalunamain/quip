@@ -20,8 +20,13 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
    			var self = this;
    			Object.keys(self.wordLists).forEach(function(listName) {
      				var collection = new WordList(self.wordLists[listName]);
+            var nameNormalized = app.normalizeForSearch(listName).replace(/\s+/g, '-');
+            delete self.wordLists[listName];
+
      				collection.listName = listName;
-     				self.wordLists[listName] = collection;
+            collection.listHref = nameNormalized;
+     				self.wordLists[nameNormalized] = collection;
+         
    			});
    		},
 
