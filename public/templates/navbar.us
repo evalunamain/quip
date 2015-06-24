@@ -1,14 +1,14 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Merismic</a>
-   
+    <span class="menu-button"><i class="material-icons">menu</i></span>
+    <a href=" " class="brand-logo">Merismic</a>
     <form class="search-field center">
       <div class="">
         <input type="search" id="search" class="search-input">
         <label for="search"><i class="mdi-action-search"></i></label>
       </div>
     </form>
-    <div class="nav-items">
+   <!-- <div class="nav-items">
       <% if (app.currentUser) { %>
         <a href="lists" class="words-link" data-wordcount="(<%= app.currentUser.words.models.length %>)">Words</a>
         <a class="waves-effect waves-light btn" id="js-logout">Logout</a>
@@ -28,6 +28,6 @@
           </button>
         </form>
       <%} %>
-    </div>
+    </div> !-->
   </div>
 </nav>

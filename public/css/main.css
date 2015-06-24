@@ -2712,7 +2712,7 @@ video.responsive-video {
   color: #fff;
 }
 .pagination li.active {
-  background-color: #455a64;
+  background-color: #ff5722;
 }
 .pagination li.disabled a {
   color: #999;
@@ -2840,7 +2840,7 @@ ul.staggered-list li {
 footer.page-footer {
   margin-top: 20px;
   padding-top: 20px;
-  background-color: #455a64;
+  background-color: #ff5722;
 }
 footer.page-footer .footer-copyright {
   overflow: hidden;
@@ -6576,7 +6576,7 @@ span.badge.new:after {
 
 nav {
   color: #fff;
-  background-color: #455a64;
+  background-color: #ff5722;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -6708,12 +6708,12 @@ nav .input-field label.active {
 
 @media only screen and (min-width: 601px) {
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 64px;
-    line-height: 64px;
+    height: 56px;
+    line-height: 56px;
   }
 
   .navbar-fixed {
-    height: 64px;
+    height: 56px;
   }
 }
 @font-face {
@@ -7269,7 +7269,7 @@ small {
   width: 15%;
 }
 .tabs .tab a {
-  color: #455a64;
+  color: #ff5722;
   display: block;
   width: 100%;
   height: 100%;
@@ -7280,13 +7280,13 @@ small {
   transition: color 0.28s ease;
 }
 .tabs .tab a:hover {
-  color: #728f9d;
+  color: #ffa588;
 }
 .tabs .indicator {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #648391;
+  background-color: #ff916e;
   will-change: left, right;
 }
 
@@ -8892,7 +8892,7 @@ select {
 }
 .side-nav .collapsible-body li.active,
 .side-nav.fixed .collapsible-body li.active {
-  background-color: #455a64;
+  background-color: #ff5722;
 }
 .side-nav .collapsible-body li.active a,
 .side-nav.fixed .collapsible-body li.active a {
@@ -10219,7 +10219,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 
 body {
-  background-color: #FAFAFA;
+  background-color: #F2F2F2;
 }
 
 .clearfix:after {
@@ -10234,6 +10234,21 @@ body {
 
 .nav-item {
   float: left;
+}
+
+.menu-button {
+  width: 72px;
+  display: inline-block;
+  text-align: center;
+}
+.menu-button i {
+  color: #ff916e;
+  font-size: 25px;
+}
+
+nav .brand-logo {
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
 .search-field {
@@ -10264,7 +10279,7 @@ input.search-input + label i {
   transition: color 0.3s;
 }
 input.search-input + label.active i {
-  color: #648391;
+  color: #ff916e;
 }
 
 .log-in-form {
@@ -10282,7 +10297,7 @@ input.search-input + label.active i {
 
 .form-button {
   padding: 0 30px;
-  color: #455a64;
+  color: #ff5722;
 }
 
 .wordrow {
@@ -10299,7 +10314,7 @@ input.search-input + label.active i {
 .wordlist-header {
   margin-left: 4%;
   font-size: .9rem;
-  color: #a1a1a1;
+  color: #a3a3a3;
 }
 
 .wordlist.collapsible {
@@ -10320,11 +10335,11 @@ input.search-input + label.active i {
   font-size: 3rem;
 }
 .search-result .card-action a {
-  color: #263137;
+  color: #d43300;
   font-weight: 600;
 }
 .search-result .card-action a:hover, .search-result .card-action a:active {
-  color: #648391;
+  color: #ff916e;
 }
 
 .words-link {

@@ -11,7 +11,7 @@
 }
 
 body {
-	background-color: #FAFAFA;
+	background-color: #F2F2F2;
 }
 
 .clearfix:after {
@@ -26,6 +26,23 @@ body {
 
 .nav-item {
 	float: left;
+}
+
+.menu-button {
+
+	width: 72px;
+  display: inline-block;
+  text-align: center;
+
+	i {
+		color: $primary-color-light;
+		font-size: 25px;
+	}
+}
+
+nav .brand-logo {
+	font-size: 1.5rem;
+	font-weight: 200;
 }
 
 .search-field {
@@ -101,7 +118,7 @@ input.search-input {
 .wordlist-header {
 	margin-left: 4%;
 	font-size: .9rem;
-	color: darken(#FAFAFA, 35%);
+	color: darken(#FAFAFA, 34%);
 }
 
 .wordlist {
