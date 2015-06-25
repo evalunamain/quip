@@ -184,13 +184,20 @@ nav .nav-wrapper {
 	}
 }
 
+.menu-block {
+	.hidden {
+  		@include translate3d(-47px,0,0);
+  		display: none;
+  	}
+}
+
 .menu-block > li {
   width: 100%;
   padding-left: 16px;
   cursor: pointer;
   float: none;
 
-  i {
+  .material-icons {
   	font-size: 1.5rem;
   	float: left;
   	line-height: inherit;
@@ -205,7 +212,7 @@ nav .nav-wrapper {
 		border: none;
 		outline: none;
 		width: calc(100% - 23px);
-		padding:5px;
+		padding:0px;
 		box-sizing: border-box;
 	}
   

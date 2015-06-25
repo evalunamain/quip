@@ -10411,13 +10411,22 @@ nav .nav-wrapper .mdi-action-search {
   width: 75%;
 }
 
+.menu-block .hidden {
+  -webkit-transform: translate3d(-47px, 0, 0);
+  -moz-transform: translate3d(-47px, 0, 0);
+  -ms-transform: translate3d(-47px, 0, 0);
+  -o-transform: translate3d(-47px, 0, 0);
+  transform: translate3d(-47px, 0, 0);
+  display: none;
+}
+
 .menu-block > li {
   width: 100%;
   padding-left: 16px;
   cursor: pointer;
   float: none;
 }
-.menu-block > li i {
+.menu-block > li .material-icons {
   font-size: 1.5rem;
   float: left;
   line-height: inherit;
@@ -10430,7 +10439,7 @@ nav .nav-wrapper .mdi-action-search {
   border: none;
   outline: none;
   width: calc(100% - 23px);
-  padding: 5px;
+  padding: 0px;
   box-sizing: border-box;
 }
 

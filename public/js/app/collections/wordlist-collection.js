@@ -14,9 +14,27 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
             return wordExists;
          },
 
-      
+         intiailize: function(options) {
+            this.wordsChannel = app.Radio.channel('words');
+         },
 
-    	url: 'api/words/',
+         newList: function(data) {
+            var self = this;
+            $.ajax({
+                url: '/api/addlist',
+                type: 'POST',
+                dataType:'json',
+                data: {
+                    listName: self.listName
+                }
+            }).done(function(data, textStatus, jqXHR) {
+              app.currentUser.wordLists[listHref] = self;
+              debugger
+              self.wordsChannel.trigger('listSaved');
+            }).fail(function(jqXHR) {
+              console.log(jqXHR);             
+            });
+         }
 
     });
 

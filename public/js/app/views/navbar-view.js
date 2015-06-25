@@ -1,4 +1,4 @@
-define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
+define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-collection'], function(Marionette, $, Velocity, User, WordList) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
@@ -6,8 +6,12 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
 
         initialize: function() {
             this.authChannel = app.Radio.channel('auth');
+            this.wordsChannel = app.Radio.channel('words');
+
             this.authChannel.on('logIn', this.render);
             this.authChannel.on('logOut', this.render);
+
+            this.wordsChannel.on('listSaved', this.listSaved);
         },
 
         hideForm: function (e) {
@@ -47,12 +51,59 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
             app.currentUser.logOut();
         },
 
+        listSaved: function() {
+            console.log("animation");
+            var self = this;
+            var $icon = $('.nav-menu-new-list').prev();
+            var $menublock = $('.nav-menu-new-list').parent().parent();
+            var newHeight = $menublock.innerHeight() + 56 + "px";
+            $icon.velocity({
+                    'translateX' :'-48px'
+                }, 
+                {
+                    easing: 'easeInOut',
+                    duration: 500,
+                    complete: function() {
+                        $icon.html('grade');
+                        var $newLi = $('<li><i class="material-icons">library_add</i><input class="nav-menu-new-list" placeholder="Create new list"></input></li>');
+                        $newLi.hide();
+                        $menublock.append($newLi);
+                        
+                        $icon.velocity({
+                            'translateX': '0px'
+                        },
+                        { 
+                            easing: 'easeInOut',
+                            duration: 500,
+                            complete: function() {
+                                self.render();
+                            }
+                        });
+
+                        $newLi.velocity("fadeIn", {duration:500});
+                    }
+            });
+
+            $menublock.velocity({
+                'height' : newHeight
+            },
+            {
+                duration: 350,
+                easing: 'easeInOut',
+                queue: false
+            });
+        },
+
         newList: function(e) {
             if (e.keyCode != 13) return;
-            var listName = $(e.currentTarget).val();
-            // var listHref =  app.normalizeForSearch(listName).replace(/\s+/g, '-');
-            // app.currentUser.wordLists[listHref] = new WordList();
-            // app.currentUser.wordLists[listHref].listName = listName;
+            var $target = $(e.currentTarget);
+            $target.blur();
+            var listName = $target.val();
+            var listHref =  app.normalizeForSearch(listName).replace(/\s+/g, '-');
+            var wordList = new WordList();
+            wordList.listName = listName;
+            wordList.listHref = listHref;
+            wordList.newList();
 
         },
 
