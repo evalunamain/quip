@@ -14,7 +14,7 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
 
             this.wordsChannel.on('listSaved', this.listSaved);
 
-            this.uiChannel.on('listSavedComplete', this.render);
+            //this.uiChannel.on('listSavedComplete', this.render);
         },
 
         hideForm: function (e) {
