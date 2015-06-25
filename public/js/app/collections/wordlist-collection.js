@@ -14,7 +14,7 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
             return wordExists;
          },
 
-         intiailize: function(options) {
+         initialize: function(options) {
             this.wordsChannel = app.Radio.channel('words');
          },
 
@@ -28,11 +28,12 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
                     listName: self.listName
                 }
             }).done(function(data, textStatus, jqXHR) {
-              app.currentUser.wordLists[listHref] = self;
-              debugger
+                console.log("reponse");
+              app.currentUser.wordLists[self.listHref] = self;
               self.wordsChannel.trigger('listSaved');
-            }).fail(function(jqXHR) {
-              console.log(jqXHR);             
+            }).fail(function(data,textStatus,jqXHR) {
+                console.log("error");
+              console.log(data,jqXHR);             
             });
          }
 

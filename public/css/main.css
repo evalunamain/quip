@@ -10380,7 +10380,7 @@ nav .nav-wrapper .mdi-action-search {
   bottom: 0;
   left: 0;
   top: 56px;
-  overflow: visible;
+  overflow-y: scroll;
   position: fixed;
   box-shadow: none;
   -webkit-transform: translate3d(-100%, 0, 0);

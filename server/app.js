@@ -129,20 +129,46 @@ app.get('/api/logout', function(req, res) {
 app.post('/api/addlist', auth, function(req,res,next) {
     var listName = req.body.listName;
     User.findOne({ _id : req.user._id}, function (err, user){
+        console.log(err,user)
         var userObj = user.toObject();
 
         if (!req.user.wordLists[listName]) {
             userObj.wordLists[listName] = [];
             User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
-                if (err) res.send(err);
-                res.send(200);
+                if (err) {
+                    console.log(err);
+                    res.status(401).send(err);
+                }
+                res.status(200).send({message: listName + ' word list created.'});
             });
         }
         else {
-            res.send({message: "A list with that name already exists!"})
+            res.status(401).send({message: "A list with that name already exists!"})
         }
     });
 
+});
+
+app.post('/api/deletelist', auth, function(req,res,next) {
+    var listName = req.body.listName;
+    User.findOne({ _id : req.user._id}, function (err, user){
+        
+        var userObj = user.toObject();
+
+        if (req.user.wordLists[listName]) {
+            delete userObj.wordLists[listName];
+            User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
+                if (err) {
+                    console.log(err);
+                    res.status(401).send(err);
+                }
+                res.status(200).send({message: listName + ' word list removed.'});
+            });
+        }
+        else {
+            res.status(401).send({message: "You can't remove something that doesn't exist!"})
+        }
+    });
 });
 
 app.post('/api/addtolist', auth, function (req, res, next) {
@@ -170,7 +196,7 @@ app.post('/api/addtolist', auth, function (req, res, next) {
 
         User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
             if (err) res.send(err);
-            res.send(200);
+            res.status(200).send({message: word + ' added to "' + wordList + '" word list.'});
         });
     });
 });
@@ -203,7 +229,7 @@ app.get('/api/word/(:word)', function(req, res){
         .end(function (result) {
         res.status(result.statusCode);
         if (result.statusCode != 200 || !result.body.results) {
-          res.send('Could not find "'+ word +'."');
+          res.send({message:'Could not find "'+ word +'."'});
         }
         else {
             res.json(result.body);

@@ -7,11 +7,14 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
         initialize: function() {
             this.authChannel = app.Radio.channel('auth');
             this.wordsChannel = app.Radio.channel('words');
+            this.uiChannel = app.Radio.channel('ui');
 
             this.authChannel.on('logIn', this.render);
             this.authChannel.on('logOut', this.render);
 
             this.wordsChannel.on('listSaved', this.listSaved);
+
+            this.uiChannel.on('listSavedComplete', this.render);
         },
 
         hideForm: function (e) {
@@ -52,7 +55,6 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
         },
 
         listSaved: function() {
-            console.log("animation");
             var self = this;
             var $icon = $('.nav-menu-new-list').prev();
             var $menublock = $('.nav-menu-new-list').parent().parent();
@@ -76,7 +78,7 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
                             easing: 'easeInOut',
                             duration: 500,
                             complete: function() {
-                                self.render();
+                                app.Radio.channel("ui").trigger("listSavedComplete");
                             }
                         });
 
