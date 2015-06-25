@@ -10415,13 +10415,23 @@ nav .nav-wrapper .mdi-action-search {
   width: 100%;
   padding-left: 16px;
   cursor: pointer;
+  float: none;
 }
 .menu-block > li i {
   font-size: 1.5rem;
   float: left;
+  line-height: inherit;
 }
 .menu-block > li a {
   color: #a1a1a1;
+}
+.menu-block > li input {
+  background: none;
+  border: none;
+  outline: none;
+  width: calc(100% - 23px);
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .menu-items-container {

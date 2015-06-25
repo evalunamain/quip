@@ -188,14 +188,25 @@ nav .nav-wrapper {
   width: 100%;
   padding-left: 16px;
   cursor: pointer;
+  float: none;
 
   i {
   	font-size: 1.5rem;
   	float: left;
+  	line-height: inherit;
 	}
 
 	a {
 		color: $primary-grey;
+	}
+
+	input {
+		background: none;
+		border: none;
+		outline: none;
+		width: calc(100% - 23px);
+		padding:5px;
+		box-sizing: border-box;
 	}
   
 }
