@@ -19,6 +19,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         events: {
             'click #js-logout': "logOut",
             'click .menu-button': "toggleMenu",
+            'keyup .nav-menu-new-list': 'newList',
             "submit .log-in-form": "logIn",
             "submit .search-field": "searchWord"
         },
@@ -26,6 +27,7 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
         onRender: function () {
             this.$search = this.$('#search');
             this.$sidenav = this.$('.side-nav-menu');
+           // this.$newListInput = this.$('.nav-menu-new-list');
         },
 
         logIn: function (e) {
@@ -43,6 +45,15 @@ define(['marionette', 'jquery', 'model/user'], function(Marionette, $, User) {
             e.preventDefault();
             e.stopPropagation();
             app.currentUser.logOut();
+        },
+
+        newList: function(e) {
+            if (e.keyCode != 13) return;
+            var listName = $(e.currentTarget).val();
+            // var listHref =  app.normalizeForSearch(listName).replace(/\s+/g, '-');
+            // app.currentUser.wordLists[listHref] = new WordList();
+            // app.currentUser.wordLists[listHref].listName = listName;
+
         },
 
         searchWord: function(e) {

@@ -14,6 +14,8 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
             return wordExists;
          },
 
+      
+
     	url: 'api/words/',
 
     });
