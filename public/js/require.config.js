@@ -4,7 +4,6 @@ requirejs.config({
     paths: {
         'backbone': 'bower_components/backbone/backbone',
         'backbone_radio' : 'bower_components/backbone.radio/build/backbone.radio',
-        'materialize' : 'bower_components/materialize/dist/js/materialize.min',
         'marionette': 'bower_components/backbone.marionette/lib/backbone.marionette',
         'marionette.radio' : 'js/lib/marionette.radio',
         'underscore': 'bower_components/underscore/underscore',
@@ -44,10 +43,6 @@ requirejs.config({
         "velocity": {
             deps: [ "jquery" ]
         },
-        'materialize': {
-            deps: ['jquery'],
-            exports: ['Materialize']
-        }
         'marionette': {
             deps: ['backbone'],
             exports: 'Marionette'
