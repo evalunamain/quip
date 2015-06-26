@@ -10428,11 +10428,11 @@ nav .nav-wrapper .mdi-action-search {
 }
 .menu-block > li .material-icons {
   font-size: 1.5rem;
-  float: left;
   line-height: inherit;
 }
 .menu-block > li a {
   color: #a1a1a1;
+  padding: 0 15px 0 30px;
 }
 .menu-block > li input {
   background: none;
@@ -10441,6 +10441,27 @@ nav .nav-wrapper .mdi-action-search {
   width: calc(100% - 23px);
   padding: 0px;
   box-sizing: border-box;
+}
+
+.list-star {
+  float: left;
+}
+
+.list-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.list-delete:hover {
+  color: #ff5722;
+}
+
+.nav-wordlist {
+  position: relative;
+}
+.nav-wordlist:hover .list-delete {
+  display: block;
 }
 
 .menu-items-container {

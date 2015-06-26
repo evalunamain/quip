@@ -13,6 +13,7 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
             this.authChannel.on('logOut', this.render);
 
             this.wordsChannel.on('listSaved', this.listSaved);
+            this.wordsChannel.on('removeList', this.removeFromMenu);
 
             //this.uiChannel.on('listSavedComplete', this.render);
         },
@@ -28,7 +29,8 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
             'click .menu-button': "toggleMenu",
             'keyup .nav-menu-new-list': 'newList',
             "submit .log-in-form": "logIn",
-            "submit .search-field": "searchWord"
+            "submit .search-field": "searchWord",
+            "click .list-delete": "deleteList"
         },
 
         onRender: function () {
@@ -106,7 +108,12 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
             wordList.listName = listName;
             wordList.listHref = listHref;
             wordList.newList();
+        },
 
+        deleteList: function (e) {
+            var listHref = $(e.currentTarget).data('delete'),
+                list = app.currentUser.wordLists[listHref];
+            list && list.deleteList();
         },
 
         searchWord: function(e) {
@@ -131,6 +138,11 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
         toggleMenu: function(e) {
             this.$sidenav.toggleClass('side-nav-open');
             app.$content.toggleClass('side-nav-open');
+        },
+
+        removeFromMenu: function (list) {
+            var list = $ ('[data-listHref="'+list+'"]');
+            list.remove();
         }
     });
 
