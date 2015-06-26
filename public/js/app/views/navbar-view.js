@@ -1,4 +1,4 @@
-define(['marionette', 'jquery', 'materialize','velocity', 'model/user', 'collection/wordlist-collection'], function(Marionette, $, Materialize, Velocity, User, WordList) {
+define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-collection'], function(Marionette, $, Velocity, User, WordList) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
