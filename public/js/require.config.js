@@ -44,7 +44,7 @@ requirejs.config({
         "velocity": {
             deps: [ "jquery" ]
         },
-        'materialize', {
+        'materialize': {
             deps: ['jquery'],
             exports: ['Materialize']
         }
