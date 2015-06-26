@@ -35,7 +35,26 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
                 console.log("error");
               console.log(data,jqXHR);             
             });
-         }
+         },
+
+         deleteList: function () {
+            var self = this;
+            $.ajax({
+                url: '/api/deletelist',
+                type: 'POST',
+                dataType:'json',
+                data: {
+                    listName: self.listName
+                }
+            }).done(function(data, textStatus, jqXHR) {
+              console.log("response");
+              self.wordsChannel.trigger('removeList', self.listHref);
+              delete app.currentUser.wordLists[self.listHref];
+            }).fail(function(data,textStatus,jqXHR) {
+              console.log("error");
+              console.log(data,jqXHR);             
+            });
+         },
 
     });
 

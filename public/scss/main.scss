@@ -199,12 +199,12 @@ nav .nav-wrapper {
 
   .material-icons {
   	font-size: 1.5rem;
-  	float: left;
   	line-height: inherit;
 	}
 
 	a {
 		color: $primary-grey;
+		padding: 0 15px 0 30px;
 	}
 
 	input {
@@ -216,6 +216,32 @@ nav .nav-wrapper {
 		box-sizing: border-box;
 	}
   
+}
+
+
+.list-star {
+ 	float: left;
+}
+
+.list-delete {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
+
+.nav-wordlist {
+	position: relative;
+
+	&:hover {
+		.list-delete {
+			display: block;
+		}
+	}
 }
 
 .menu-items-container {
