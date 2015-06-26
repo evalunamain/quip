@@ -141,9 +141,15 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
         },
 
         removeFromMenu: function (list) {
-            var list = $ ('[data-listHref="'+list+'"]');
-            list.remove();
+            var $list = $ ('[data-listHref="'+list+'"]');
+            $list.velocity('fadeOut', {
+                duration: 500,
+                complete: function() {
+                    $list.remove();
+                }
+            })
         }
+                
     });
 
     return NavbarView;
