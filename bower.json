@@ -4,7 +4,8 @@
     "backbone.marionette": "2.2.1",
     "materialize": "~0.96.1",
     "jquery-ui": "~1.11.4",
-    "backbone.radio": "~1.0.0"
+    "backbone.radio": "~1.0.0",
+    "toastr": "~2.1.1"
   },
   "resolutions": {
     "underscore": ">=1.4.0 <=1.8.3"

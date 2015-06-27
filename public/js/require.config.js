@@ -9,7 +9,8 @@ requirejs.config({
         'underscore': 'bower_components/underscore/underscore',
         'jquery': 'bower_components/jquery/dist/jquery',
         'jquery-ui': 'bower_components/jquery-ui/jquery-ui.min',
-        'dropdown' : 'bower_components/materialize/js/dropdown',    
+        'dropdown' : 'bower_components/materialize/js/dropdown',
+        'toastr' : 'bower_components/toastr/toastr.min',    
         'velocity' : 'js/lib/velocity.min',    
         'app': 'js/app',
         'router': 'js/app/routers',
@@ -55,6 +56,10 @@ requirejs.config({
         },
         'jquery-ui': {
             deps: ['jquery']
+        },
+        'toastr' : {
+            deps: ['jquery'],
+            exports: 'toastr'
         }
     }
 });

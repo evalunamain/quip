@@ -1,4 +1,4 @@
-define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-collection'], function(Marionette, $, Velocity, User, WordList) {
+define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/wordlist-collection'], function(Marionette, $, Velocity, toastr, User, WordList) {
 
     var NavbarView = Marionette.ItemView.extend({
     	
@@ -14,6 +14,8 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
 
             this.wordsChannel.on('listSaved', this.listSaved);
             this.wordsChannel.on('removeList', this.removeFromMenu);
+
+            toastr["success"]("Test.");
 
             //this.uiChannel.on('listSavedComplete', this.render);
         },
@@ -113,7 +115,15 @@ define(['marionette', 'jquery', 'velocity', 'model/user', 'collection/wordlist-c
         deleteList: function (e) {
             var listHref = $(e.currentTarget).data('delete'),
                 list = app.currentUser.wordLists[listHref];
-            list && list.deleteList();
+                var $listDiv = $(e.currentTarget).parent();
+                var $li = $listDiv.parent();
+                var $confirmDeleteDiv = $('<div class="confirm-delete-div"><span>Are you sure?</span><i class="material-icons">thumb_up</i><i class="material-icons">thumb_down</i></div>');
+                $confirmDeleteDiv.hide();
+                $li.append($confirmDeleteDiv);
+                $listDiv.velocity({visiblity:'hidden'}, {duration: 500});
+                $confirmDeleteDiv.velocity('fadeIn', {duration:500});
+
+           // list && list.deleteList();
         },
 
         searchWord: function(e) {

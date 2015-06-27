@@ -1,4 +1,5 @@
 @import '../bower_components/materialize/sass/materialize.scss';
+@import '../bower_components/toastr/toastr.scss';
 
 %horizontal-align {
 	position: relative;
@@ -196,6 +197,7 @@ nav .nav-wrapper {
   padding-left: 16px;
   cursor: pointer;
   float: none;
+  position: relative;
 
   .material-icons {
   	font-size: 1.5rem;

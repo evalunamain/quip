@@ -50,7 +50,11 @@
           <hr>
           <ul class="menu-block">
             <% _.forEach(app.currentUser.wordLists, function(wordList) { %>
-              <li class="nav-wordlist" data-listHref="<%= wordList.listHref %>"><i class="material-icons list-star">grade</i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a><i class="material-icons list-delete" data-delete="<%= wordList.listHref %>">delete</i></li>
+              <li class="nav-wordlist" data-listHref="<%= wordList.listHref %>">
+                <div>
+                  <i class="material-icons list-star">grade</i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a><i class="material-icons list-delete" data-delete="<%= wordList.listHref %>">delete</i>
+                </div>
+              </li>
             <% }) %>
             <li><i class="material-icons">library_add</i><input class="nav-menu-new-list" placeholder="Create new list"></input>
           </ul>
