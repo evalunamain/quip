@@ -32,7 +32,9 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             'keyup .nav-menu-new-list': 'newList',
             "submit .log-in-form": "logIn",
             "submit .search-field": "searchWord",
-            "click .list-delete": "deleteList"
+            "click .list-delete": "confirmDeleteList",
+            "click .js-delete-ok": "deleteList",
+            "click .js-delete-cancel": "cancelDeleteList"
         },
 
         onRender: function () {
@@ -112,18 +114,35 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             wordList.newList();
         },
 
-        deleteList: function (e) {
+        confirmDeleteList: function (e) {
+            var $listDiv = $(e.currentTarget).parent();
+            var $li = $listDiv.parent();
+            var $confirmDeleteDiv = $listDiv.next('.confirm-delete-div');
+        
+            $listDiv.velocity({opacity:0}, {
+                duration: 300,
+                complete: function() {
+                    $confirmDeleteDiv.velocity({opacity: 1}, {duration:300});
+                }
+            });
+        },
+
+        deleteList: function(e) {
             var listHref = $(e.currentTarget).data('delete'),
                 list = app.currentUser.wordLists[listHref];
-                var $listDiv = $(e.currentTarget).parent();
-                var $li = $listDiv.parent();
-                var $confirmDeleteDiv = $('<div class="confirm-delete-div"><span>Are you sure?</span><i class="material-icons">thumb_up</i><i class="material-icons">thumb_down</i></div>');
-                $confirmDeleteDiv.hide();
-                $li.append($confirmDeleteDiv);
-                $listDiv.velocity({visiblity:'hidden'}, {duration: 500});
-                $confirmDeleteDiv.velocity('fadeIn', {duration:500});
+            list && list.deleteList();
+        },
 
-           // list && list.deleteList();
+        cancelDeleteList: function (e) {
+            var $deleteDiv = $(e.currentTarget).parent(),
+                $listDiv = $deleteDiv.prev();
+
+            $deleteDiv.velocity({opacity:0}, {
+                duration: 300,
+                complete: function() {
+                    $listDiv.velocity({opacity: 1}, {duration:300});
+                }
+            });
         },
 
         searchWord: function(e) {

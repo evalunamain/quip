@@ -10733,17 +10733,37 @@ nav .nav-wrapper .mdi-action-search {
   color: #ff916e;
 }
 
-nav
-.words-link {
+nav .words-link {
   position: relative;
 }
-nav
-.words-link:before {
+nav .words-link:before {
   content: attr(data-wordcount);
   font-size: .75rem;
   font-weight: 200;
   position: absolute;
   left: -1rem;
+}
+
+.confirm-delete-div {
+  position: absolute;
+  padding-left: 1rem;
+  top: 0;
+  opacity: 0;
+}
+
+.icon-delete {
+  color: #4CAF50;
+}
+
+.cancel-delete-icon {
+  display: inline-block;
+  color: #F44336;
+  font-size: 2rem;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  font-weight: 400;
 }
 
 .word-expanded {

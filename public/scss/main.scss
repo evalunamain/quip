@@ -307,9 +307,7 @@ nav .nav-wrapper {
 	}
 }
 
-nav
-
-.words-link {
+nav .words-link {
 	position: relative;
 
 	&:before {
@@ -321,6 +319,27 @@ nav
 	}
 }
 
+.confirm-delete-div {
+	position: absolute;
+	padding-left: 1rem;
+	top: 0;
+	opacity: 0;
+}
+
+.icon-delete {
+	color: $success-color;
+}
+
+.cancel-delete-icon {
+	display: inline-block;
+	color: $error-color;
+	font-size: 2rem;
+	-webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  font-weight: 400;
+}
 
 .word-expanded {
 	background-color: white;

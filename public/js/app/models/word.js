@@ -11,14 +11,12 @@ define(['app', 'backbone'], function(app, Backbone) {
 	    },
 
 	    initialize: function(data) {
-	    	console.log("Word initialize",data);
 	    	if (this.get('definitions').length == 0) {
 	    		this.fetch();
 	    	}
 	    },
 
 	    parse: function (response) {
-	    	console.log("Word parse",response);
 	    	if (response.results) {
 	    		var results = response.results,
 	    			self = this,

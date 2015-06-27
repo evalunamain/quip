@@ -51,8 +51,13 @@
           <ul class="menu-block">
             <% _.forEach(app.currentUser.wordLists, function(wordList) { %>
               <li class="nav-wordlist" data-listHref="<%= wordList.listHref %>">
-                <div>
-                  <i class="material-icons list-star">grade</i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a><i class="material-icons list-delete" data-delete="<%= wordList.listHref %>">delete</i>
+                <div class="list-item-container">
+                  <i class="material-icons list-star">grade</i><a href="lists/<%= wordList.listHref %>"><%= wordList.listName %></a><i class="material-icons list-delete">delete</i>
+                </div>
+                <div class="confirm-delete-div">
+                  <span>Are you sure?</span>
+                  <i class="material-icons icon-delete js-delete-ok" data-delete="<%= wordList.listHref %>">done</i>
+                  <span class="cancel-delete-icon js-delete-cancel">+</span>
                 </div>
               </li>
             <% }) %>
