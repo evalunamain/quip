@@ -62,7 +62,6 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
         require(['router/home-router', 'router/words-router'], function(HomeRouter, WordsRouter) {
             var HomeRouter = new HomeRouter();
             var WordsRouter = new WordsRouter();
-            debugger
             app.NavBar.show(new NavbarView());
             app.SideNavMenu.show(new SideNavMenuView());
             Backbone.history.start({pushState: true});
