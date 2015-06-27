@@ -1,4 +1,4 @@
-define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', 'collection/wordlist-collection', 'view/navbar-view'], function(Marionette, Backbone, $, Word, User, WordList, NavbarView) {
+define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', 'collection/wordlist-collection', 'view/navbar-view', 'view/side-nav-menu-view'], function(Marionette, Backbone, $, Word, User, WordList, NavbarView, SideNavMenuView) {
 
     // Redefine Marionette.Renderer.render for production using.
     if (window.JST) {
@@ -17,7 +17,8 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     var app = new Marionette.Application({
 
         regions: {
-            Header: '#header',
+            NavBar: '#navbar',
+            SideNavMenu: '#side-nav-menu',
             Content: '#content',
             Footer: '#footer'
         },
@@ -61,7 +62,9 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
         require(['router/home-router', 'router/words-router'], function(HomeRouter, WordsRouter) {
             var HomeRouter = new HomeRouter();
             var WordsRouter = new WordsRouter();
-            app.Header.show(new NavbarView());
+            debugger
+            app.NavBar.show(new NavbarView());
+            app.SideNavMenu.show(new SideNavMenuView());
             Backbone.history.start({pushState: true});
         });
        
