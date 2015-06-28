@@ -3,6 +3,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
     var NavbarView = Marionette.ItemView.extend({
     	
     //	className: 'navbar-fixed',
+        tagName:  'nav',
         template: '#nav-bar',
 
         initialize: function() {
@@ -13,7 +14,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             this.authChannel.on('logIn', this.render);
             this.authChannel.on('logOut', this.render);
 
-            toastr["success"]("Test.");
+            // toastr["success"]("Test.");
 
             //this.uiChannel.on('listSavedComplete', this.render);
         },
@@ -26,7 +27,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             'click #js-logout': "logOut",
             'click .menu-button': "toggleMenu",
        //     'keyup .nav-menu-new-list': 'newList',
-          //  "submit .log-in-form": "logIn",
+           "submit .log-in-form": "logIn",
             "submit .search-field": "searchWord",
             "click .list-delete": "confirmDeleteList",
         //    "click .js-delete-ok": "deleteList",

@@ -36,11 +36,11 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             "click .js-delete-cancel": "cancelDeleteList"
         },
 
-        logOut: function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            app.currentUser.logOut();
-        },
+        // logOut: function(e) {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     app.currentUser.logOut();
+        // },
 
         listSaved: function() {
             var self = this;
