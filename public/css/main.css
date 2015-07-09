@@ -10662,7 +10662,6 @@ nav .nav-wrapper .mdi-action-search {
   border: none;
   outline: none;
   width: calc(100% - 23px);
-  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -10733,10 +10732,10 @@ nav .nav-wrapper .mdi-action-search {
   color: #ff916e;
 }
 
-nav .words-link {
+.words-link {
   position: relative;
 }
-nav .words-link:before {
+.words-link:before {
   content: attr(data-wordcount);
   font-size: .75rem;
   font-weight: 200;
@@ -10764,6 +10763,18 @@ nav .words-link:before {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   font-weight: 400;
+}
+
+.new-list-input-container {
+  position: relative;
+}
+
+.new-list-icon {
+  position: absolute;
+}
+
+.nav-menu-new-list {
+  padding: 0 15px 0 30px;
 }
 
 .word-expanded {

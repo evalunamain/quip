@@ -214,7 +214,6 @@ nav .nav-wrapper {
 		border: none;
 		outline: none;
 		width: calc(100% - 23px);
-		padding:0px;
 		box-sizing: border-box;
 	}
   
@@ -307,7 +306,7 @@ nav .nav-wrapper {
 	}
 }
 
-nav .words-link {
+.words-link {
 	position: relative;
 
 	&:before {
@@ -339,6 +338,18 @@ nav .words-link {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   font-weight: 400;
+}
+
+.new-list-input-container {
+	position: relative;	
+}
+
+.new-list-icon {
+	position: absolute;
+}
+
+.nav-menu-new-list {
+	padding: 0 15px 0 30px;
 }
 
 .word-expanded {
