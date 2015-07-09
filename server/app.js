@@ -190,7 +190,7 @@ app.post('/api/deletefromlist', function (req, res, next) {
    var wordListName = req.body.wordListName;
    var word = req.body.word;
 
-    WordList.update({_id: wordListId}, {"$pull" : {"words" : word}}, function (err, affected){
+    WordList.update({_id: wordListId}, {"$pull" : {"words" : {"word":word}}}, function (err, affected){
         if (err) res.status(401).send(err);
         res.status(200).send({message: word + ' removed from "' + wordListName + '" word list.'});
 
