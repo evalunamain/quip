@@ -23,6 +23,8 @@ var config = grunt.file.readJSON('config.json');
 
 //Database
 var User = require('./models/user');
+var WordList = require('./models/wordlist');
+var ObjectId = mongoose.Types.ObjectId;
 var db = mongoose.connection;
 
 db.on('error', console.error);
@@ -171,34 +173,38 @@ app.post('/api/deletelist', auth, function(req,res,next) {
     });
 });
 
-app.post('/api/addtolist', auth, function (req, res, next) {
+app.post('/api/addtolist', function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';
-   var wordList = req.body.wordList;
-   var inFavorites = req.body.inFavorites || false;
+   var wordListId = req.body.wordListId;
+   var wordListName = req.body.wordListName;
+   var word = {word:req.body.word, dateAdded: new Date()};
+   var wordDocument = WordList.find({_id: ObjectId(wordListId)}, function(err, list) {
+       console.log('document: ',list);
+   });
 
-   var word = req.body.word;
+    WordList.update({_id: ObjectId(wordListId)}, {"$push" : {"words" : word}}, function (err, affected){
+        if (err) res.status(401).send(err);
+        res.status(200).send({message: req.body.word + ' added to "' + wordListName + '" word list.'});
 
-   var conditions = {_id : req.user._id},
-       update = { $set : {wordList:word}},
-       options = {upsert: false};
+    });
 
   
 
-    User.findOne({ _id : req.user._id}, function (err, user){
-        var userObj = user.toObject();
+    // User.findOne({ _id : req.user._id}, function (err, user){
+    //     var userObj = user.toObject();
 
-        if (!req.user.wordLists[wordList]) {
-            userObj.wordLists[wordList] = [];
-        }
+    //     if (!req.user.wordLists[wordList]) {
+    //         userObj.wordLists[wordList] = [];
+    //     }
 
-        userObj.wordLists[wordList].push({word: word, updated_at: new Date()});
-        if (!inFavorites) userObj.wordLists['Favorites'].push({word: word, updated_at: new Date()});
+    //     userObj.wordLists[wordList].push({word: word, updated_at: new Date()});
+    //     if (!inFavorites) userObj.wordLists['Favorites'].push({word: word, updated_at: new Date()});
 
-        User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
-            if (err) res.send(err);
-            res.status(200).send({message: word + ' added to "' + wordList + '" word list.'});
-        });
-    });
+    //     User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
+    //         if (err) res.send(err);
+    //         res.status(200).send({message: word + ' added to "' + wordList + '" word list.'});
+    //     });
+    // });
 });
 
 

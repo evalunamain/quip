@@ -9,7 +9,7 @@ var userSchema = new mongoose.Schema({
         password: String,
     },
     wordLists: {
-        type: mongoose.Schema.Types.Mixed,
+        type: Array,
         required: false
     },
     dateJoined: {
