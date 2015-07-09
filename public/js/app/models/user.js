@@ -6,28 +6,26 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
 
    		set: function (attributes, options) {
         // if (app.currentUser && !app.currentUser.words) app.currentUser.words = new WordList();
-        
    			if (attributes.wordLists) {
-   				this.wordLists = attributes.wordLists;
-   				this.setWordLists();
+   				this.wordLists = this.setWordLists(attributes.wordLists);
    				delete attributes.wordLists;
    			}
    			return Backbone.Model.prototype.set.call(this, attributes, options);
    		},
 
-   		setWordLists: function () {
+   		setWordLists: function (wordLists) {
+        var userWordLists = {};
 
-   			var self = this;
-   			Object.keys(self.wordLists).forEach(function(listName) {
-     				var collection = new WordList(self.wordLists[listName]);
-            var nameNormalized = app.normalizeForSearch(listName).replace(/\s+/g, '-');
-            delete self.wordLists[listName];
+        wordLists.forEach(function (wordList) {
+          var collection = new WordList(wordList.words),
+            nameNormalized = app.normalizeForSearch(wordList['name']).replace(/\s+/g, '-');
 
-     				collection.listName = listName;
-            collection.listHref = nameNormalized;
-     				self.wordLists[nameNormalized] = collection;
-         
-   			});
+          collection.listName = wordList['name'];
+          collection.listHref = nameNormalized;
+          userWordLists[nameNormalized] = collection;
+        });
+
+        return userWordLists;
    		},
 
 	    logIn: function(options){

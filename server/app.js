@@ -108,33 +108,40 @@ app.post('/api/login', function (req, res, next) {
         if(err){
             return next(err);
         }
+        returnUser(req, res, user);
 
-        user = user.toObject();
-        delete user.local; //Don't send back credentials
-       
-        WordList.find({
-            '_id': { $in: user.wordLists}}, function (err, docs) {
-                console.log('err: ', err, 'docs: ', docs);
-                if (err ) res.status(401).send({message: err});
-                if (docs.length < user.wordLists.length) {
-                    res.status(401).send({message: 'There was an problem retrieving your wordLists, please try again.'});
-                }
-                user.wordLists = docs;
-                return res.send({ success : true, message : 'authentication succeeded', user: user });
-
-        });
     }); 
 
   })(req, res, next);
 });
 
+var returnUser = function(req, res, user) {
+    console.log(user);
+    user = user.toObject();
+    delete user.local; //Don't send back credentials
+   
+    WordList.find({
+        '_id': { $in: user.wordLists}}, function (err, docs) {
+            console.log('err: ', err, 'docs: ', docs);
+            if (err ) res.status(401).send({message: err});
+            if (docs.length < user.wordLists.length) {
+                res.status(401).send({message: 'There was an problem retrieving your wordLists, please try again.'});
+            }
+            user.wordLists = docs;
+            return res.send({ success : true, message : 'authentication succeeded', user: user });
+
+    });
+} 
+
 app.get('/api/loggedin', function(req, res) { 
     if (!req.isAuthenticated()) {
         res.status(401).send({message: "You're not logged in!"});
     } else {
-        var user = req.user.toObject();
-        delete user.local;
-        res.send(user);
+        returnUser(req, res, req.user);
+        // var user = req.user.toObject();
+
+        // delete user.local;
+        // res.send(user);
     }
      
 }); 

@@ -30,6 +30,7 @@ define(['underscore', 'backbone', 'view/error-view'], function (_, Backbone, Err
 		 },
 
 		 normalizeForSearch: function (s) {
+            console.log(s);
 
         function filter(c) {
             switch (c) {

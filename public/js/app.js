@@ -43,8 +43,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
         }).done(function (data) {
             app.currentUser = new User();
             app.currentUser.words = new WordList();
-        
-            app.currentUser.set(data);
+            app.currentUser.set(data.user);
             console.log('user session found', app.currentUser);
         }).fail(function (data, a, b) {
             if (app.currentUser) {
