@@ -29,7 +29,12 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             'keyup .nav-menu-new-list': 'newList',
             "click .list-delete": "confirmDeleteList",
             "click .js-delete-ok": "deleteList",
-            "click .js-delete-cancel": "cancelDeleteList"
+            "click .js-delete-cancel": "cancelDeleteList",
+            // "click .nav-wordlist": "test"
+        },
+
+        test: function (e) {
+            debugger
         },
 
         logOut: function(e) {
@@ -102,6 +107,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             $listDiv.velocity({opacity:0}, {
                 duration: 300,
                 complete: function() {
+                    $confirmDeleteDiv.show();
                     $confirmDeleteDiv.velocity({opacity: 1}, {duration:300});
                 }
             });
@@ -120,6 +126,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             $deleteDiv.velocity({opacity:0}, {
                 duration: 300,
                 complete: function() {
+                    $deleteDiv.hide();
                     $listDiv.velocity({opacity: 1}, {duration:300});
                 }
             });

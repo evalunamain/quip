@@ -10748,6 +10748,7 @@ nav .nav-wrapper .mdi-action-search {
   padding-left: 1rem;
   top: 0;
   opacity: 0;
+  display: none;
 }
 
 .icon-delete {
