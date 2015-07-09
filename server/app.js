@@ -129,48 +129,40 @@ app.get('/api/logout', function(req, res) {
 }); 
 
 app.post('/api/addlist', auth, function(req,res,next) {
-    var listName = req.body.listName;
-    User.findOne({ _id : req.user._id}, function (err, user){
-        console.log(err,user)
-        var userObj = user.toObject();
-
-        if (!req.user.wordLists[listName]) {
-            userObj.wordLists[listName] = [];
-            User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
-                if (err) {
-                    console.log(err);
-                    res.status(401).send(err);
-                }
-                res.status(200).send({message: listName + ' word list created.'});
-            });
-        }
-        else {
-            res.status(401).send({message: "A list with that name already exists!"})
-        }
+    var wordListName = req.body.wordListName;
+    var newWordList = new WordList({
+        name: wordListName,
+        dateCreated: new Date()
     });
+
+    newWordList.save(function(err, list) {
+        var wordListId = list.id;
+
+        User.update({ _id : req.user._id}, {"$push" : {"wordLists": wordListId}}, function (err, list){
+            if (err) res.status(401).send(err);
+            res.status(200).send({message: "List added!"});
+         });
+
+    });
+
+
 
 });
 
-app.post('/api/deletelist', auth, function(req,res,next) {
-    var listName = req.body.listName;
-    User.findOne({ _id : req.user._id}, function (err, user){
-        
-        var userObj = user.toObject();
+app.post('/api/deletelist', function(req,res,next) {
+    var wordListId = new ObjectId(req.body.wordListId);
+    WordList.findOneAndRemove({"_id": wordListId}, function (err, doc) {
+    // doc.remove(function(err, doc) {
+        if (err) res.status(401).send(err);
+        User.update({ _id : req.user._id}, {"$pull" : {"wordLists": req.body.wordListId}}, function (err, list){
+            if (err) res.status(401).send(err);
+            res.status(200).send({message: "List removed!"});
+        });
 
-        if (req.user.wordLists[listName]) {
-            delete userObj.wordLists[listName];
-            User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
-                if (err) {
-                    console.log(err);
-                    res.status(401).send(err);
-                }
-                res.status(200).send({message: listName + ' word list removed.'});
-            });
-        }
-        else {
-            res.status(401).send({message: "You can't remove something that doesn't exist!"})
-        }
+    // });
     });
+   
+
 });
 
 app.post('/api/addtolist', function (req, res, next) {
