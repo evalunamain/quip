@@ -35,7 +35,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
         },
 
         onRender: function () {
-            this.$search = $('#search');
+            this.$search = this.$('#search');
             this.$sidenav = $('.side-nav-menu');
            // this.$newListInput = this.$('.nav-menu-new-list');
         },
