@@ -31,6 +31,25 @@ db.on('error', console.error);
 
 mongoose.connect(process.env.DB_URL);
 
+//Functions
+var auth = function(req, res, next){ 
+    if (!req.isAuthenticated()) {
+        res.send(401);
+    } else {
+        next();   
+    } 
+}; 
+
+var getWordLists = function (wordListIds) {
+    console.log('in function: ', wordListIds);
+    WordList.find({
+        '_id': { $in: wordListIds}}, function (err, docs) {
+            console.log('err: ', err, 'docs: ', docs);
+        if (err || docs.length == 0) return false;
+        return docs;
+    });
+};
+
 require('./config/passport')(passport);
 
 app.use(cookieParser(process.env.SESSION_SECRET));
@@ -48,14 +67,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-var auth = function(req, res, next){ 
-    if (!req.isAuthenticated()) {
-        res.send(401);
-    } else {
-        next();   
-    } 
-}; 
 
 console.log('Enviroment: ' + config.enviroment);
 if (config.enviroment === 'dev') {
@@ -100,7 +111,18 @@ app.post('/api/login', function (req, res, next) {
 
         user = user.toObject();
         delete user.local; //Don't send back credentials
-        return res.send({ success : true, message : 'authentication succeeded', user: user });
+       
+        WordList.find({
+            '_id': { $in: user.wordLists}}, function (err, docs) {
+                console.log('err: ', err, 'docs: ', docs);
+                if (err ) res.status(401).send({message: err});
+                if (docs.length < user.wordLists.length) {
+                    res.status(401).send({message: 'There was an problem retrieving your wordLists, please try again.'});
+                }
+                user.wordLists = docs;
+                return res.send({ success : true, message : 'authentication succeeded', user: user });
+
+        });
     }); 
 
   })(req, res, next);
@@ -138,7 +160,7 @@ app.post('/api/addlist', auth, function(req,res,next) {
     newWordList.save(function(err, list) {
         var wordListId = list.id;
 
-        User.update({ _id : req.user._id}, {"$push" : {"wordLists": wordListId}}, function (err, list){
+        User.update({ _id : req.user._id}, {"$push" : {"wordLists": new ObjectId(wordListId)}}, function (err, list){
             if (err) res.status(401).send(err);
             res.status(200).send({message: "List added!"});
          });
@@ -188,10 +210,6 @@ app.post('/api/deletefromlist', function (req, res, next) {
 
     });
 });
-
-
-
-
    
 app.get('/api/words/(:words)', function(req, res){
    var words = JSON.parse(req.params.words);
@@ -225,9 +243,7 @@ app.get('/api/word/(:word)', function(req, res){
             res.json(result.body);
         }
     });
-
 });
-
 
 app.get('/*', function(req, res){
     indexGenerator.index(function(html) {
