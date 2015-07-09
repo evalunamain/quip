@@ -174,39 +174,30 @@ app.post('/api/deletelist', auth, function(req,res,next) {
 });
 
 app.post('/api/addtolist', function (req, res, next) {
-   //var wordList = '"wordLists.'+req.body.wordList+'"';
    var wordListId = new ObjectId(req.body.wordListId);
-   console.log(wordListId);
    var wordListName = req.body.wordListName;
    var word = {word:req.body.word, dateAdded: new Date()};
-   var wordDocument = WordList.find({_id: wordListId}, function(err, list) {
-       console.log('document: ',list);
-   });
 
     WordList.update({_id: wordListId}, {"$push" : {"words" : word}}, function (err, affected){
         if (err) res.status(401).send(err);
         res.status(200).send({message: req.body.word + ' added to "' + wordListName + '" word list.'});
 
     });
-
-  
-
-    // User.findOne({ _id : req.user._id}, function (err, user){
-    //     var userObj = user.toObject();
-
-    //     if (!req.user.wordLists[wordList]) {
-    //         userObj.wordLists[wordList] = [];
-    //     }
-
-    //     userObj.wordLists[wordList].push({word: word, updated_at: new Date()});
-    //     if (!inFavorites) userObj.wordLists['Favorites'].push({word: word, updated_at: new Date()});
-
-    //     User.update({_id: req.user._id},  {$set : {wordLists:userObj.wordLists}}, {overwrite: true}, function(err, doc) {
-    //         if (err) res.send(err);
-    //         res.status(200).send({message: word + ' added to "' + wordList + '" word list.'});
-    //     });
-    // });
 });
+
+app.post('/api/deletefromlist', function (req, res, next) {
+   var wordListId = new ObjectId(req.body.wordListId);
+   var wordListName = req.body.wordListName;
+   var word = req.body.word;
+
+    WordList.update({_id: wordListId}, {"$pull" : {"words" : word}}, function (err, affected){
+        if (err) res.status(401).send(err);
+        res.status(200).send({message: word + ' removed from "' + wordListName + '" word list.'});
+
+    });
+});
+
+
 
 
    
