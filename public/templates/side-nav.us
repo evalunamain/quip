@@ -20,7 +20,7 @@
                 </div>
               </li>
             <% }) %>
-            <li><i class="material-icons">library_add</i><input class="nav-menu-new-list" placeholder="Create new list"></input>
+            <li class="new-list-input-container"><i class="material-icons new-list-icon">library_add</i><input class="nav-menu-new-list" placeholder="Create new list"></input>
           </ul>
         <% } %>
         <hr>

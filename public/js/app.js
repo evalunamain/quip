@@ -17,7 +17,7 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     var app = new Marionette.Application({
 
         regions: {
-            NavBar: '#navbar',
+            NavBar: '#navbar-div',
             SideNavMenu: '#side-nav-menu',
             Content: '#content',
             Footer: '#footer'
@@ -36,8 +36,6 @@ define('app', ['marionette', 'backbone', 'jquery', 'model/word', 'model/user', '
     });
 
     app.on('before:start', function () {
-
-
 
         $.ajax({
             url: '/api/loggedin',

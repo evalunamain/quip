@@ -18,7 +18,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
 
             toastr["success"]("Test.");
 
-            //this.uiChannel.on('listSavedComplete', this.render);
+            this.uiChannel.on('listSavedComplete', this.render);
         },
 
         hideForm: function (e) {
@@ -26,21 +26,17 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
         },
 
         events: {
-           // 'click #js-logout': "logOut",
-           // 'click .menu-button': "toggleMenu",
             'keyup .nav-menu-new-list': 'newList',
-        // "submit .log-in-form": "logIn",
-          //  "submit .search-field": "searchWord",
             "click .list-delete": "confirmDeleteList",
             "click .js-delete-ok": "deleteList",
             "click .js-delete-cancel": "cancelDeleteList"
         },
 
-        // logOut: function(e) {
-        //     e.preventDefault();
-        //     e.stopPropagation();
-        //     app.currentUser.logOut();
-        // },
+        logOut: function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            app.currentUser.logOut();
+        },
 
         listSaved: function() {
             var self = this;
@@ -66,7 +62,9 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
                             easing: 'easeInOut',
                             duration: 500,
                             complete: function() {
-                                app.Radio.channel("ui").trigger("listSavedComplete");
+                                setTimeout(function(){
+                                    app.Radio.channel("ui").trigger("listSavedComplete");
+                                }, 100);
                             }
                         });
 

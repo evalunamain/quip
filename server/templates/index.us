@@ -13,22 +13,22 @@
 <body>
     <header id="header">
         <nav>
-            <div class="navbar-fixed" id="navbar"></div>
+            <div class="navbar-fixed" id="navbar-div"></div>
             <div class="side-nav-menu" id="side-nav-menu"></div>
         </nav>
     </header>
     <main id="content" class="container"></main>
     <footer id="footer"></footer>
 
-<% _.each(templates, function(template) { %>
-<script type="text/template" id="<%= template.name %>">
-    <%= template.content %>
-</script>
-<% }); %>
+    <% _.each(templates, function(template) { %>
+    <script type="text/template" id="<%= template.name %>">
+        <%= template.content %>
+    </script>
+    <% }); %>
 
-<% _.each(jsList, function(script) { %>
-<script type="text/javascript" src="js/<%= script %>"></script>
-<% }); %>
+    <% _.each(jsList, function(script) { %>
+    <script type="text/javascript" src="js/<%= script %>"></script>
+    <% }); %>
 
 </body>
 </html>
