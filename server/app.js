@@ -169,7 +169,8 @@ app.post('/api/addlist', auth, function(req,res,next) {
 
         User.update({ _id : req.user._id}, {"$push" : {"wordLists": new ObjectId(wordListId)}}, function (err, list){
             if (err) res.status(401).send(err);
-            res.status(200).send({message: "List added!"});
+            console.log(wordListId);
+            res.status(200).send({listId: wordListId, message: "List added!"});
          });
 
     });
@@ -183,7 +184,7 @@ app.post('/api/deletelist', function(req,res,next) {
     WordList.findOneAndRemove({"_id": wordListId}, function (err, doc) {
     // doc.remove(function(err, doc) {
         if (err) res.status(401).send(err);
-        User.update({ _id : req.user._id}, {"$pull" : {"wordLists": req.body.wordListId}}, function (err, list){
+        User.update({ _id : req.user._id}, {"$pull" : {"wordLists": wordListId}}, function (err, list){
             if (err) res.status(401).send(err);
             res.status(200).send({message: "List removed!"});
         });

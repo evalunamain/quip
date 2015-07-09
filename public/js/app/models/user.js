@@ -20,6 +20,7 @@ define(['backbone', 'collection/wordlist-collection', 'model/word'], function(Ba
           var collection = new WordList(wordList.words),
             nameNormalized = app.normalizeForSearch(wordList['name']).replace(/\s+/g, '-');
 
+          collection._id = wordList._id;
           collection.listName = wordList['name'];
           collection.listHref = nameNormalized;
           userWordLists[nameNormalized] = collection;

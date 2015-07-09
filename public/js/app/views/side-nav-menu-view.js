@@ -16,7 +16,7 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             this.wordsChannel.on('listSaved', this.listSaved);
             this.wordsChannel.on('removeList', this.removeFromMenu);
 
-            toastr["success"]("Test.");
+            // toastr["success"]("Test.");
 
             this.uiChannel.on('listSavedComplete', this.render);
         },
@@ -30,11 +30,6 @@ define(['marionette', 'jquery', 'velocity', 'toastr', 'model/user', 'collection/
             "click .list-delete": "confirmDeleteList",
             "click .js-delete-ok": "deleteList",
             "click .js-delete-cancel": "cancelDeleteList",
-            // "click .nav-wordlist": "test"
-        },
-
-        test: function (e) {
-            debugger
         },
 
         logOut: function(e) {

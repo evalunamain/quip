@@ -25,10 +25,10 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
                 type: 'POST',
                 dataType:'json',
                 data: {
-                    listName: self.listName
+                    wordListName: self.listName
                 }
             }).done(function(data, textStatus, jqXHR) {
-                console.log("reponse");
+              self._id = data.listId;
               app.currentUser.wordLists[self.listHref] = self;
               self.wordsChannel.trigger('listSaved');
             }).fail(function(data,textStatus,jqXHR) {
@@ -39,12 +39,13 @@ define(['backbone', 'underscore','model/word'], function(Backbone, _, Word) {
 
          deleteList: function () {
             var self = this;
+
             $.ajax({
                 url: '/api/deletelist',
                 type: 'POST',
                 dataType:'json',
                 data: {
-                    listName: self.listName
+                    wordListId: self._id
                 }
             }).done(function(data, textStatus, jqXHR) {
               console.log("response");
