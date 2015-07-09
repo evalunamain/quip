@@ -24,7 +24,7 @@ var config = grunt.file.readJSON('config.json');
 //Database
 var User = require('./models/user');
 var WordList = require('./models/wordlist');
-var ObjectId = mongoose.Types.ObjectId;
+var ObjectId = require('mongodb').ObjectID;
 var db = mongoose.connection;
 
 db.on('error', console.error);
@@ -175,14 +175,15 @@ app.post('/api/deletelist', auth, function(req,res,next) {
 
 app.post('/api/addtolist', function (req, res, next) {
    //var wordList = '"wordLists.'+req.body.wordList+'"';
-   var wordListId = req.body.wordListId;
+   var wordListId = new ObjectId(req.body.wordListId);
+   console.log(wordListId);
    var wordListName = req.body.wordListName;
    var word = {word:req.body.word, dateAdded: new Date()};
-   var wordDocument = WordList.find({_id: ObjectId(wordListId)}, function(err, list) {
+   var wordDocument = WordList.find({_id: wordListId}, function(err, list) {
        console.log('document: ',list);
    });
 
-    WordList.update({_id: ObjectId(wordListId)}, {"$push" : {"words" : word}}, function (err, affected){
+    WordList.update({_id: wordListId}, {"$push" : {"words" : word}}, function (err, affected){
         if (err) res.status(401).send(err);
         res.status(200).send({message: req.body.word + ' added to "' + wordListName + '" word list.'});
 
