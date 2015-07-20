@@ -10724,12 +10724,47 @@ nav .nav-wrapper .mdi-action-search {
 .search-result .card-title {
   font-size: 3rem;
 }
-.search-result .card-action a {
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-actions li {
+  float: left;
   color: #d53300;
   font-weight: 600;
+  cursor: pointer;
+  position: relative;
 }
-.search-result .card-action a:hover, .search-result .card-action a:active {
+.card-actions li:hover, .card-actions li:active {
   color: #ff916f;
+}
+.card-actions .dropdown-content {
+  right: 0;
+}
+
+.dropdown-content li {
+  padding: 5px;
+}
+.dropdown-content li:hover {
+  background-color: initial;
+}
+.dropdown-content label {
+  font-weight: 500;
+  color: #ff5722;
+}
+.dropdown-content label:hover {
+  color: #ff916f;
+}
+
+.dropdown-button:hover > .dropdown-content {
+  display: block;
+  opacity: 1;
+}
+
+.card .card-action {
+  border-top: none;
 }
 
 .words-link {

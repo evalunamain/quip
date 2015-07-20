@@ -1,6 +1,6 @@
 {
   "name": "backbone.babysitter",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "https://github.com/marionettejs/backbone.babysitter",
   "authors": [
     "Derick Bailey <derickbailey@gmail.com>"
@@ -17,7 +17,7 @@
     "browser"
   ],
   "dependencies": {
-    "backbone": ">=0.9.9 <=1.2.0",
+    "backbone": ">=0.9.9 <=1.2.1",
     "underscore": ">=1.4.0 <=1.8.3"
   },
   "license": "MIT",
@@ -36,11 +36,11 @@
     "component.json",
     "package.json"
   ],
-  "_release": "0.1.7",
+  "_release": "0.1.8",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.7",
-    "commit": "59eecb77dcdec8d65f36b5dfcf919acc68f4584b"
+    "tag": "v0.1.8",
+    "commit": "eb129617748712825db8521f290e0e76ac4741a0"
   },
   "_source": "git://github.com/marionettejs/backbone.babysitter.git",
   "_target": "^0.1.0",
