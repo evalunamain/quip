@@ -1,21 +1,47 @@
 <div class="col s12 m10 search-result">
 	<div class="card">
 		<div class="card-content">
-			<span class="card-title"><%= word %></span>
+			<div class="card-header">
+				<span class="card-title"><%= word %></span>
+				<ul class="card-actions">
+					<li class="dropdown-button" data-activates='dropdown1'><i class="material-icons">playlist_add</i>
+						<ul class='dropdown-content'>
+					    <li><input type="checkbox" id="test5" />
+      					<label for="test5">Red</label></li>
+					    <li><input type="checkbox" id="test6" />
+      					<label for="test6">Red</label></li>
+							<li><input type="checkbox" id="test7" />
+      					<label for="test7">Red</label></li>
+      				<li><input type="submit" value="Add to lists"/></li>
+	  				</ul>
+	  			</li>
+	  			<li class="dropdown-button" data-activates='dropdown1'><i class="material-icons">playlist_add</i>
+						<ul class='dropdown-content'>
+					   <li><input type="checkbox" id="test5" />
+      					<label for="test5">Red</label></li>
+					    <li><input type="checkbox" id="test6" />
+      					<label for="test6">Red</label></li>
+							<li><input type="checkbox" id="test7" />
+      					<label for="test7">Red</label></li>
+	  				</ul>
+	  			</li>
+	  			<li class="dropdown-button" data-activates='dropdown1'><i class="material-icons">playlist_add</i>
+						<ul class='dropdown-content'>
+					   <li><input type="checkbox" id="test5" />
+      					<label for="test5">Red</label></li>
+					    <li><input type="checkbox" id="test6" />
+      					<label for="test6">Red</label></li>
+							<li><input type="checkbox" id="test7" />
+      					<label for="test7">Red</label></li>
+	  				</ul>
+	  			</li>
+				</ul>
+			</div>
 			<ul>
 				<% results.forEach(function (definition) { %>
 					<li><%= definition.definition %></li>
 				<% }) %>
 			</ul>
-			<div class="card-action">
-					<a href="#" class="dropdown-button" data-activates='dropdown1'><i class="material-icons">playlist_add</i></a>
-					<ul id='dropdown1' class='dropdown-content'>
-				    <li><a href="#!">one</a></li>
-				    <li><a href="#!">two</a></li>
-				    <li class="divider"></li>
-				    <li><a href="#!">three</a></li>
-  				</ul>
-			</div>
 		</div>	
 	</div>
 </div>

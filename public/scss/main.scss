@@ -295,15 +295,59 @@ nav .nav-wrapper {
 		@extend .grey-text, .text-darken-4;
 		font-size: 3rem;
 	}
+}
+.card-header {
+	display: flex;
+	justify-content: space-between;
+}
 
-	.card-action a {
+.card-actions {
+	li {
+		float: left;
 		color: $primary-color-dark;
 		font-weight: 600;
+		cursor: pointer;
+		position: relative;
 
 		&:hover, &:active {
 			color: $primary-color-light
 		}
 	}
+
+	.dropdown-content {
+		right: 0;
+	}
+}
+.dropdown-content { 
+	li {
+		padding: 5px;
+
+		&:hover {
+			background-color: initial;
+		}
+
+	}
+
+	label {
+		font-weight: 500;
+		color: $primary-color;
+
+		&:hover {
+			color: $primary-color-light
+		}
+	}
+
+}
+
+.dropdown-button:hover {
+	> .dropdown-content {
+		display: block;
+		opacity: 1;
+	}
+}
+
+.card .card-action {
+	border-top: none;
 }
 
 .words-link {
