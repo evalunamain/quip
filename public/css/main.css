@@ -7286,7 +7286,7 @@ small {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #ff916e;
+  background-color: #ff916f;
   will-change: left, right;
 }
 
@@ -7376,7 +7376,7 @@ small {
   cursor: pointer;
 }
 .btn:hover, .btn-large:hover {
-  background-color: #5d9aff;
+  background-color: #5e9aff;
 }
 
 .btn-floating {
@@ -10474,7 +10474,7 @@ body {
   cursor: pointer;
 }
 .menu-button i {
-  color: #ff916e;
+  color: #ff916f;
   font-size: 25px;
 }
 
@@ -10725,11 +10725,11 @@ nav .nav-wrapper .mdi-action-search {
   font-size: 3rem;
 }
 .search-result .card-action a {
-  color: #d43300;
+  color: #d53300;
   font-weight: 600;
 }
 .search-result .card-action a:hover, .search-result .card-action a:active {
-  color: #ff916e;
+  color: #ff916f;
 }
 
 .words-link {
